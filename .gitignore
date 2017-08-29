@@ -4,9 +4,9 @@ composer.phar
 /web/bundles/
 /var/bootstrap.php.cache
 /var/cache/*
+/var/logs/*
+/var/sessions/*
 /app/config/parameters.yml
-!var/cache/.gitkeep
-!var/logs/.gitkeep
 /build/
 /vendor/
 /bin/
