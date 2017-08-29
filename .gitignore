@@ -1,1 +1,12 @@
 .idea
+.git
+composer.phar
+/web/bundles/
+/var/bootstrap.php.cache
+/var/cache/*
+/app/config/parameters.yml
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+/build/
+/vendor/
+/bin/
