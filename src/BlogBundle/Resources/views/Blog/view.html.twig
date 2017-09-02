@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="page-title" id="page-title">
+        <h1>{{ blog.title }}</h1>
+    </div>
+    <article>
+        <div class="container blog-container">
+            <div class="field field-body">
+                {{ blog.body|raw }}
+            </div>
+            <div class="field field_created">
+                Опобліковано: {{ blog.created|date("d-m-Y H:m") }}
+            </div>
+        </div>
+    </article>
+{% endblock %}

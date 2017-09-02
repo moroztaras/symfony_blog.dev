@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="page-title" id="page-title">
+        <h1>Блог</h1>
+    </div>
+    {% for blog in blogs %}
+        <article>
+            <h2>
+                <a href="{{ path('blog_view', {'id':blog.id}) }}">{{ blog.title }}</a>
+            </h2>
+            <div class="container blog-container">
+                <div class="field field-body-summary">
+                    {{ blog.summary|raw }}
+                </div>
+                <div role="navigation">
+                    <ul>
+                        <li class="read-more">
+                            <a href="{{ path('blog_view', {'id':blog.id}) }}">Подробиці</a>
+                        </li>
+                    </ul>
+                </div>
+        </article>
+    {% endfor %}
+{% endblock %}
