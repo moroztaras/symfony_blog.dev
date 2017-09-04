@@ -1,9 +1,10 @@
-{% extends 'base.html.twig' %}
-{% block title %}Про нас{% endblock %}
-{% block body %}
-    <div class="page-title" id="page-title">
-        <h1>Про нас</h1>
-    </div>
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block title %} Про нас | Блог 2017{% endblock %}
+
+{% block page_title %}Про нас{% endblock %}
+
+{% block content %}
     <article>
         <div class="container blog-container">
             <div class="field field-body">
@@ -16,8 +17,8 @@
                         </td>
                         <td>
                             <p>Вітаю Вас на моєму сайті. Мене звати Мороз Тарас.<br>
-                               Цей блог зроблено спеціально для удосконалення поглиблиблених знань на framework Symfony3
-                               Початок розробки: вересень 2017 року.
+                                Цей блог зроблено спеціально для удосконалення поглиблиблених знань на framework Symfony3
+                                Початок розробки: вересень 2017 року.
                             </p>
                         </td>
                     </tr>

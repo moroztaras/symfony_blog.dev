@@ -1,8 +1,10 @@
-{% extends 'base.html.twig' %}
-{% block body %}
-    <div class="page-title" id="page-title">
-        <h1>Блог</h1>
-    </div>
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block title %}Головна | Блог 2017 {% endblock %}
+
+{% block page_title %}Блог 2017{% endblock %}
+
+{% block content %}
     {% for blog in blogs %}
         <article>
             <h2>

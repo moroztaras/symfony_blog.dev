@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class BlogController extends Controller
 {
     /**
-     * @Route("/blogs", name="blogs")
+     * @Route("/", name="homepage")
      */
     public function indexAction()
     {
