@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}Про нас{% endblock %}
+{% block body %}
+    <div class="page-title" id="page-title">
+        <h1>Про нас</h1>
+    </div>
+    <article>
+        <div class="container blog-container">
+            <div class="field field-body">
+                <table>
+                    <tr>
+                        <td>
+                            <center>
+                                <img id="img_author" src="{{ asset('bundles/blog/images/about_us.jpg')}}"  width='50%'/>
+                            </center>
+                        </td>
+                        <td>
+                            <p>Вітаю Вас на моєму сайті. Мене звати Мороз Тарас.<br>
+                               Цей блог зроблено спеціально для удосконалення поглиблиблених знань на framework Symfony3
+                               Початок розробки: вересень 2017 року.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </article>
+{% endblock %}
