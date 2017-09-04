@@ -1,6 +1,7 @@
 .idea
 .git
 composer.phar
+.sass-cache
 /web/bundles/
 /var/bootstrap.php.cache
 /var/cache/*
