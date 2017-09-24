@@ -1,0 +1,17 @@
+/* line 7, ../../../../sass/symfony_blog_2017.scss */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 12, ../../../../sass/symfony_blog_2017.scss */
+.block-logo {
+  background-color: #d5dedd;
+  padding: 30px;
+}
+/* line 15, ../../../../sass/symfony_blog_2017.scss */
+.block-logo .side-log {
+  margin: 0 auto;
+  width: 960px;
+  text-align: center;
+}

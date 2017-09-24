@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% block header %}
+        <header>
+            {% block logo %}
+                <div class="block block-logo">
+                    <div class="side-log">
+                        <img src="{{ asset('images/logo_blog.jpg') }}">
+                    </div>
+                </div>
+            {% endblock %}
+            {% block main_menu %}
+                <div class="main-menu" id="menu_main_menu">
+                    <div class="type-menu">
+                        <ul>
+                            <li><a href="{{ path('homepage') }}">Головна</a></li>
+                            <li><a href="{{ path('homepage') }}">Блог</a></li>
+                            <li><a href="{{ path('about_us') }}">Про нас</a></li>
+                        </ul>
+                    </div>
+                </div>
+            {% endblock %}
+        </header>
+    {% endblock %}
+
+    {% block content %}
+        <div id="main_container">
+            {% block side_title %}
+                <div class="page-title" id="page-title">
+                    <h1>{% block page_title %}{% endblock %}</h1>
+                </div>
+            {% endblock %}
+
+            <main>
+                {% block main %}
+
+                {% endblock %}
+            </main>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+        <footer role="contentinfo">
+            <div class="block block-copyright">
+                Copyright &copy; 2017. Moroz Taras. All right reserved.
+            </div>
+        </footer>
+    {% endblock %}
+
+{% endblock %}

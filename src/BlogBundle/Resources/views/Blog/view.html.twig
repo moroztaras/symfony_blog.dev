@@ -1,17 +1,17 @@
-{% extends 'BlogBundle::layout.html.twig' %}
+{% extends '::page.html.twig' %}
 
 {% block title %}{{ blog.title }} | Блог 2017{% endblock %}
 
 {% block page_title %}{{ blog.title }}{% endblock %}
 
-{% block content %}
-    <article>
+{% block main %}
+    <article class="block">
         <div class="container blog-container">
-            <div class="field field-body">
-                {{ blog.body|raw }}
-            </div>
             <div class="field field_created">
                 Опобліковано: {{ blog.created|date("d-m-Y H:m") }}
+            </div>
+            <div class="field field-body">
+                {{ blog.body|raw }}
             </div>
         </div>
     </article>

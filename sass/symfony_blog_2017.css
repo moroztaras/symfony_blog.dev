@@ -1,3 +1,100 @@
+body, html {
+  margin: 0;
+  padding: 0; }
 
+body {
+  font-family: Calibri;
+  font-size: 16px; }
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; }
+
+h1 {
+  font-size: 35px;
+  margin: 0 0 20px 0;
+  color: #1a665a; }
+
+h2 {
+  font-size: 27px;
+  margin: 0 0 20px 0;
+  color: #1a665a; }
+  h2 a {
+    color: #1a665a;
+    text-decoration: none; }
+
+p {
+  margin-top: 0; }
+
+.block-logo {
+  background-color: #d5dedd;
+  padding: 30px  0; }
+  .block-logo .side-log {
+    margin: 0 auto;
+    width: 960px;
+    text-align: center; }
+
+#menu_main_menu {
+  margin-top: 30px;
+  background-color: #bddad8; }
+  #menu_main_menu .type-menu {
+    margin: 0 auto;
+    width: 960px; }
+  #menu_main_menu ul {
+    margin: 0;
+    padding: 0;
+    text-align: center; }
+    #menu_main_menu ul li {
+      display: inline-block;
+      padding: 10px 20px; }
+      #menu_main_menu ul li a {
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #1a665a;
+        text-transform: uppercase; }
+        #menu_main_menu ul li a:hover {
+          text-decoration: underline; }
+
+#main_container {
+  margin: 30px auto;
+  width: 960px; }
+  #main_container article .field {
+    margin-bottom: 20px; }
+    #main_container article .field:last-child {
+      margin-bottom: 20px; }
+  #main_container article .field_created {
+    font-size: 14px;
+    color: #777777; }
+  #main_container article.block-index {
+    border-bottom: 2px solid #d5dedd;
+    padding-bottom: 20px;
+    margin-bottom: 20px; }
+    #main_container article.block-index .article-title {
+      text-align: center; }
+    #main_container article.block-index .field_created {
+      text-align: center; }
+    #main_container article.block-index:last-child {
+      border-bottom-width: 0;
+      padding-bottom: 0;
+      margin-bottom: 0; }
+  #main_container article .link-menu ul {
+    margin: 0;
+    padding: 0;
+    text-align: right; }
+    #main_container article .link-menu ul li {
+      list-style-type: none; }
+      #main_container article .link-menu ul li a {
+        color: orange;
+        font-size: 12px;
+        font-weight: bold;
+        text-decoration: none; }
+
+footer {
+  background-color: #d5dedd;
+  text-align: center;
+  padding: 10px  0; }
+  footer .block-copyright {
+    color: #767979; }
 
 /*# sourceMappingURL=symfony_blog_2017.css.map */

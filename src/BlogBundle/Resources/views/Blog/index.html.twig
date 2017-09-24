@@ -1,26 +1,29 @@
-{% extends 'BlogBundle::layout.html.twig' %}
+{% extends '::page.html.twig' %}
 
 {% block title %}Головна | Блог 2017 {% endblock %}
 
-{% block page_title %}Блог 2017{% endblock %}
+{% block site_title %}{% endblock %}
 
-{% block content %}
+{% block main %}
     {% for blog in blogs %}
-        <article>
-            <h2>
+        <article class="block block-index">
+            <h2 class="article-title">
                 <a href="{{ path('blog_view', {'id':blog.id}) }}">{{ blog.title }}</a>
             </h2>
             <div class="container blog-container">
+                <div class="field field_created">
+                    {{ blog.created|date("d-m-Y H:m") }}
+                </div>
                 <div class="field field-body-summary">
                     {{ blog.summary|raw }}
                 </div>
-                <div role="navigation">
+                <nav class="link-menu" role="navigation">
                     <ul>
                         <li class="read-more">
                             <a href="{{ path('blog_view', {'id':blog.id}) }}">Подробиці</a>
                         </li>
                     </ul>
-                </div>
+                </nav>
         </article>
     {% endfor %}
 {% endblock %}

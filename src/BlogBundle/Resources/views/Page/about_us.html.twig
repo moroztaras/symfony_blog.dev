@@ -1,10 +1,10 @@
-{% extends 'BlogBundle::layout.html.twig' %}
+{% extends '::page.html.twig' %}
 
 {% block title %} Про нас | Блог 2017{% endblock %}
 
 {% block page_title %}Про нас{% endblock %}
 
-{% block content %}
+{% block main %}
     <article>
         <div class="container blog-container">
             <div class="field field-body">
@@ -12,7 +12,7 @@
                     <tr>
                         <td>
                             <center>
-                                <img id="img_author" src="{{ asset('bundles/blog/images/about_us.jpg')}}"  width='50%'/>
+                                <img id="img_author" src="{{ asset('images/about_us.jpg')}}"  width='50%'/>
                             </center>
                         </td>
                         <td>
