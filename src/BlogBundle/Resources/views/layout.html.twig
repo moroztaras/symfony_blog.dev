@@ -1,15 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends '::page.html.twig' %}
 
-{% block body %}
-    {% block main_menu %}
-        <ul>
-            <li><a href="{{ path('homepage') }}">Головна</a></li>
-            <li><a href="{{ path('homepage') }}">Блог</a></li>
-            <li><a href="{{ path('about_us') }}">Про нас</a></li>
-        </ul>
-    {% endblock %}
-    <div class="page-title" id="page-title">
-        <h1>{% block page_title %} {% endblock %}</h1>
+{% block main_menu %}
+    <div class="main-menu" id="menu_main_menu">
+        <div class="type-menu">
+            <ul>
+                <li><a href="{{ path('homepage') }}">Головна</a></li>
+                <li><a href="{{ path('homepage') }}">Блог</a></li>
+                <li><a href="{{ path('about_us') }}">Про нас</a></li>
+            </ul>
+        </div>
     </div>
-    {% block content %} {% endblock %}
 {% endblock %}

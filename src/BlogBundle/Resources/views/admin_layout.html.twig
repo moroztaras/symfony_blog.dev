@@ -1,0 +1,15 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}Адмін панель | Блог 2017{% endblock %}
+{% block page_title %}Адмін панель{% endblock %}
+
+{% block main_menu %}
+    <div class="main-menu" id="menu_main_menu">
+        <div class="type-menu">
+            <ul>
+                <li><a href="{{ path('homepage') }}">Головна</a></li>
+                <li><a href="{{ path('admin_blogs') }}">Блоги</a></li>
+             </ul>
+        </div>
+    </div>
+{% endblock %}
