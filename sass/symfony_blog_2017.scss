@@ -130,6 +130,60 @@ p{
     }
   }
 }
+.main-view-admin{
+  .menu-item{
+    li {
+      list-style-type: none;
+      a{
+        color: orange;
+        text-decoration: none;
+      }
+    }
+  }
+  .blog-view-admin{
+    .field-row{
+      margin-bottom: 20px;
+      .field{
+        display: inline-block;
+      }
+    }
+    .field-title{
+      width: calc(90% - 4px);
+      color: $title;
+      font-size: 18px;
+    }
+    .field-blog-edit{
+      width: 10%;
+      a{
+        color: orange;
+        text-decoration: none;
+      }
+      text-align: right;
+    }
+  }
+}
+
+.pagination{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  ul{
+    li{
+      margin: 0 5px;
+      padding: 0;
+      list-style-type: none;
+      display: inline-block;
+      color: orange;
+      a{
+        color: orange;
+        text-decoration: none;
+      }
+      &.current{
+        font-weight: bold;
+      }
+    }
+  }
+}
 
 footer{
   background-color: $cd5;

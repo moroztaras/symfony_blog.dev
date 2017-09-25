@@ -4,22 +4,32 @@ namespace BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends Controller
 {
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine();
         $blogRepository = $em->getRepository('BlogBundle:Blog');
 
-        $blogs = $blogRepository->findAll();;
+        $totalBlog=$blogRepository->findAllBlogCount();
 
+        $page = $request->query->get("page") && $request->query->get("page") > 1 ? $request->query->get("page") : 1;
+        $blogs = $blogRepository->findBlog(["page"=>$page]);
+        $pagination = [
+          "total" => array_shift($totalBlog),
+          "page" => $page,
+          "max_result" => 5,
+          "url" => "homepage"
+        ];
         return $this->render(
             'BlogBundle:Blog:index.html.twig',[
-            'blogs'=>$blogs
+            'blogs'=>$blogs,
+            'pagination' => $pagination
         ]);
     }
 

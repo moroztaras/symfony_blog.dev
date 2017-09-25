@@ -90,6 +90,42 @@ p {
         font-weight: bold;
         text-decoration: none; }
 
+.main-view-admin .menu-item li {
+  list-style-type: none; }
+  .main-view-admin .menu-item li a {
+    color: orange;
+    text-decoration: none; }
+.main-view-admin .blog-view-admin .field-row {
+  margin-bottom: 20px; }
+  .main-view-admin .blog-view-admin .field-row .field {
+    display: inline-block; }
+.main-view-admin .blog-view-admin .field-title {
+  width: calc(90% - 4px);
+  color: #1a665a;
+  font-size: 18px; }
+.main-view-admin .blog-view-admin .field-blog-edit {
+  width: 10%;
+  text-align: right; }
+  .main-view-admin .blog-view-admin .field-blog-edit a {
+    color: orange;
+    text-decoration: none; }
+
+.pagination {
+  margin: 0;
+  padding: 0;
+  text-align: center; }
+  .pagination ul li {
+    margin: 0 5px;
+    padding: 0;
+    list-style-type: none;
+    display: inline-block;
+    color: orange; }
+    .pagination ul li a {
+      color: orange;
+      text-decoration: none; }
+    .pagination ul li.current {
+      font-weight: bold; }
+
 footer {
   background-color: #d5dedd;
   text-align: center;

@@ -5,6 +5,7 @@
 {% block site_title %}{% endblock %}
 
 {% block main %}
+    <div class="blog-index-view">
     {% for blog in blogs %}
         <article class="block block-index">
             <h2 class="article-title">
@@ -26,4 +27,9 @@
                 </nav>
         </article>
     {% endfor %}
+    </div>
+    {{ include("BlogBundle:Include:pagination.html.twig", { "pagination" : pagination }) }}
+    <div class="pagination">
+
+    </div>
 {% endblock %}

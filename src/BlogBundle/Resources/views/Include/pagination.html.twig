@@ -1,0 +1,19 @@
+<nav class="pagination">
+    <ul>
+        {% if pagination.page > 1 %}
+            <li class="page prev">
+                <a href="{{ path(pagination.url, {"page" : (pagination.page - 1) } ) }}">Попередня</a>
+            </li>
+        {% endif %}
+
+        <li class="page current">{{ pagination.page }}</li>
+
+        {% set showNext = (pagination.page * pagination.max_result) <= pagination.total %}
+
+        {% if showNext %}
+            <li class="page next">
+                <a href="{{ path(pagination.url, {"page" : (pagination.page + 1) } ) }}">Наступна</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
