@@ -41,7 +41,7 @@ class BlogController extends Controller
         $em = $this->getDoctrine();
         $blogRepository = $em->getRepository('BlogBundle:Blog');
 
-        $blog = $blogRepository->find($id);;
+        $blog = $blogRepository->find($id);
 
         return $this->render(
             'BlogBundle:Blog:view.html.twig',[

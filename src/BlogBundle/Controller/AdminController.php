@@ -52,7 +52,7 @@ class AdminController extends Controller
         }
 
         return $this->render(
-            "BlogBundle:Admin:admin_create.html.twig",
+            "BlogBundle:Admin:admin_form_create.html.twig",
             [
                 "form_create_blog" => $forms->createView()
             ]
@@ -62,9 +62,33 @@ class AdminController extends Controller
     /**
      * @Route("/admin/blog/{id}/edit", name="admin_blog_edit")
      */
-    public function editAction($id)
+    public function editAction($id, Request $request)
     {
-        return new Response($id);
+        $em = $this->getDoctrine()->getManager();
+        $blog = $em->getRepository("BlogBundle:Blog")->find($id);
+
+        if (!$blog)
+        {
+            throw $this->createAccessDeniedException("Такий блог не знайдено!");
+        }
+
+        $forms = $this->createForm(FormType::class, $blog);
+        $forms->handleRequest($request);
+        if($forms->isSubmitted() && $forms->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($blog);
+            $em->flush();
+
+            return $this->redirectToRoute("admin_blogs");
+        }
+
+        return $this->render(
+            "BlogBundle:Admin:admin_form_edit.html.twig",
+            [
+                "form_edit_blog" => $forms->createView()
+            ]
+        );
     }
 
     /**
