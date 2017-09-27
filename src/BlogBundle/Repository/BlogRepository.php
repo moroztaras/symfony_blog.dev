@@ -16,16 +16,20 @@ class BlogRepository extends EntityRepository
 
     public function findBlog(array $context = [])
     {
-        $count=5;
         $query=$this->createQueryBuilder("b");
         $query->select("b");
-        $query->setMaxResults($count);
+        $max_result = 5;
+        if(isset($context["max_result"]) && $context["max_result"] >1)
+        {
+            $max_result=$context["max_result"];
+        }
+        $query->setMaxResults($max_result);
         $query->orderBy("b.id", "DESC");
 
         $page = 0;
         if (isset($context["page"]) && is_numeric($context["page"]) && $context["page"] > 1 )
         {
-            $page = $count * ($context["page"] - 1);
+            $page = $max_result * ($context["page"] - 1);
         }
 
         $query->setFirstResult($page);

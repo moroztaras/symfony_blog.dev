@@ -16,20 +16,32 @@ class AdminController extends Controller
      */
     public function indexAction()
     {
-        return $this->redirectToRoute("admin_blogs");;
+        return $this->redirectToRoute("admin_blogs");
     }
 
     /**
      * @Route("/admin/blogs", name="admin_blogs")
      */
-    public function blogsAction()
+    public function blogsAction(Request $request)
     {
-        $blogs = $this->getDoctrine()->getRepository("BlogBundle:Blog")->findAll();
+        $blogRepository =$this->getDoctrine()->getRepository("BlogBundle:Blog");
+        $totalBlog=$blogRepository->findAllBlogCount();
+
+        $page = $request->query->get("page") && $request->query->get("page") > 1 ? $request->query->get("page") : 1;
+        $blogs = $blogRepository->findBlog(["page"=>$page, "max_result" => 10]);
+        $pagination = [
+            "total" => array_shift($totalBlog),
+            "page" => $page,
+            "max_result" => 10,
+            "url" => "admin_blogs"
+        ];
 
         return $this->render(
-            "BlogBundle:Admin:admin_view.html.twig", [
-                "blogs"=>$blogs
-                ]
+            "BlogBundle:Admin:admin_view.html.twig",
+            [
+                "blogs"=>$blogs,
+                'pagination' => $pagination
+            ]
         );
     }
 

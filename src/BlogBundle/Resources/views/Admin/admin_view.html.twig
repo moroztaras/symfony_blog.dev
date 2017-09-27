@@ -1,6 +1,6 @@
 {% extends 'BlogBundle::admin_layout.html.twig' %}
 
-{% block page_title %}Блоги{% endblock %}
+{% block page_title %}Блоги | Адмін панель {% endblock %}
 
 {% block main %}
     <nav>
@@ -20,4 +20,5 @@
             {% endfor %}
         </div>
     </div>
+    {{ include("BlogBundle:Include:pagination.html.twig", { "pagination" : pagination }) }}
 {% endblock %}
