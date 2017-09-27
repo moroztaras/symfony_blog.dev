@@ -1,10 +1,12 @@
 {% extends 'BlogBundle::admin_layout.html.twig' %}
 
+{% block page_title %}Блоги{% endblock %}
+
 {% block main %}
     <nav>
         <ul class="menu-item">
             <li class="item">
-                <a href="#">Створити</a>
+                <a href="{{ path('admin_blog_create') }}">Створити пост</a>
             </li>
         </ul>
     </nav>

@@ -1,0 +1,7 @@
+{% extends 'BlogBundle::admin_layout.html.twig' %}
+
+{% block page_title %}Створити новий блог{% endblock %}
+
+{% block main %}
+    {{ form(form_create_blog) }}
+{% endblock %}

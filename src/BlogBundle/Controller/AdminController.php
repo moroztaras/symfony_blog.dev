@@ -2,8 +2,11 @@
 
 namespace BlogBundle\Controller;
 
+use BlogBundle\Entity\Blog;
+use BlogBundle\Forms\FormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class AdminController extends Controller
@@ -27,6 +30,32 @@ class AdminController extends Controller
             "BlogBundle:Admin:admin_view.html.twig", [
                 "blogs"=>$blogs
                 ]
+        );
+    }
+
+    /**
+     * @Route("/admin/blog/create", name="admin_blog_create")
+     */
+    public function createAction(Request $request)
+    {
+        $blog = new Blog();
+        $forms = $this->createForm(FormType::class, $blog);
+
+        $forms->handleRequest($request);
+        if($forms->isSubmitted() && $forms->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($blog);
+            $em->flush();
+
+            return $this->redirectToRoute("admin_blogs");
+        }
+
+        return $this->render(
+            "BlogBundle:Admin:admin_create.html.twig",
+            [
+                "form_create_blog" => $forms->createView()
+            ]
         );
     }
 
