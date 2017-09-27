@@ -16,7 +16,7 @@ class AdminController extends Controller
      */
     public function indexAction()
     {
-        return new Response("HERE");
+        return $this->redirectToRoute("admin_blogs");;
     }
 
     /**
