@@ -108,6 +108,18 @@ class AdminController extends Controller
      */
     public function deleteAction($id)
     {
-        return new Response($id);
+        $em = $this->getDoctrine()->getManager();
+        $blog = $em->getRepository("BlogBundle:Blog")->find($id);
+
+        if (!$blog)
+        {
+            throw $this->createAccessDeniedException("Такий блог не знайдено!");
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($blog);
+        $em->flush();
+
+        return $this->redirectToRoute("admin_blogs");
     }
 }

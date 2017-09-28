@@ -109,6 +109,12 @@ p {
   .main-view-admin .blog-view-admin .field-blog-edit a {
     color: orange;
     text-decoration: none; }
+.main-view-admin .blog-view-admin .field-blog-delete {
+  width: 10%;
+  text-align: right; }
+  .main-view-admin .blog-view-admin .field-blog-delete a {
+    color: orange;
+    text-decoration: none; }
 
 .pagination {
   margin: 0;
@@ -125,6 +131,37 @@ p {
       text-decoration: none; }
     .pagination ul li.current {
       font-weight: bold; }
+
+form {
+  background-color: #d5dedd;
+  width: 600px;
+  margin: 0 auto;
+  padding: 30px; }
+  form label {
+    display: block;
+    font-size: 17px;
+    color: #1a665a;
+    margin-bottom: 5px; }
+  form input[type="text"], form input[type="password"], form input[type="email"] {
+    width: 100%;
+    border: 1px solid #b9bdbd;
+    padding: 2px 5px; }
+  form textarea {
+    width: 100%;
+    border: 1px solid #b9bdbd;
+    padding: 2px 5px;
+    resize: none;
+    min-height: 200px; }
+  form button {
+    cursor: pointer;
+    margin-top: 10px;
+    color: white;
+    background-color: #1a665a;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-width: 0;
+    text-align: center; }
 
 footer {
   background-color: #d5dedd;
