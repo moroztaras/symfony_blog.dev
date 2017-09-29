@@ -12,13 +12,23 @@
     </nav>
     <div class="view blog-view-admin">
         <div class="field-row">
+            <table class="table table-blog">
+                <tr>
+                    <td id="id">ID</td>
+                    <td id="title">Назва</td>
+                    <td id="actions">Дії</td>
+                </tr>
             {% for blog in blogs %}
-                <div class="field-row">
-                    <div class="field field-title">{{ blog.title }}</div>
-                    <div class="field field-blog-edit"><a href="{{ path('admin_blog_edit', {id : blog.id}) }}">Редагувати</a></div>
-                    <div class="field field-blog-delete"><a href="{{ path('admin_blog_delete', {id : blog.id}) }}">Видалити</a></div>
-                </div>
+                <tr>
+                    <td class="id">{{ blog.id }}</td>
+                    <td class="title">{{ blog.title }}</td>
+                    <td class="actions">
+                        <a href="{{ path('admin_blog_edit', {id : blog.id}) }}">Редагувати</a>
+                        <a href="{{ path('admin_blog_delete', {id : blog.id}) }}">Видалити</a>
+                    </td>
+                </tr>
             {% endfor %}
+            </table>
         </div>
     </div>
     {{ include("BlogBundle:Include:pagination.html.twig", { "pagination" : pagination }) }}

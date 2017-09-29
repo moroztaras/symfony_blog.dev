@@ -159,40 +159,60 @@ p {
 .main-view-admin .blog-view-admin .field-row .field {
   display: inline-block;
 }
-/* line 151, ../../sass/symfony_blog_2017.scss */
-.main-view-admin .blog-view-admin .field-title {
-  width: calc(90% - 4px);
-  color: #1a665a;
-  font-size: 18px;
+/* line 150, ../../sass/symfony_blog_2017.scss */
+.main-view-admin .blog-view-admin .field-row .table-blog {
+  width: 100%;
 }
-/* line 156, ../../sass/symfony_blog_2017.scss */
-.main-view-admin .blog-view-admin .field-blog-edit {
-  width: 10%;
-  text-align: right;
+/* line 152, ../../sass/symfony_blog_2017.scss */
+.main-view-admin .blog-view-admin .field-row .table-blog #id, .main-view-admin .blog-view-admin .field-row .table-blog #title, .main-view-admin .blog-view-admin .field-row .table-blog #actions {
+  background-color: #bddad8;
+  text-align: center;
+  font-weight: bold;
+  color: #1a665a;
 }
 /* line 158, ../../sass/symfony_blog_2017.scss */
-.main-view-admin .blog-view-admin .field-blog-edit a {
-  color: orange;
-  text-decoration: none;
+.main-view-admin .blog-view-admin .field-row .table-blog #id {
+  width: 5%;
+}
+/* line 161, ../../sass/symfony_blog_2017.scss */
+.main-view-admin .blog-view-admin .field-row .table-blog #title {
+  width: 70%;
 }
 /* line 164, ../../sass/symfony_blog_2017.scss */
-.main-view-admin .blog-view-admin .field-blog-delete {
-  width: 10%;
-  text-align: right;
+.main-view-admin .blog-view-admin .field-row .table-blog #actions {
+  width: 25%;
 }
-/* line 166, ../../sass/symfony_blog_2017.scss */
-.main-view-admin .blog-view-admin .field-blog-delete a {
+/* line 167, ../../sass/symfony_blog_2017.scss */
+.main-view-admin .blog-view-admin .field-row .table-blog .id {
+  color: #1a665a;
+  font-size: 18px;
+  text-align: center;
+}
+/* line 172, ../../sass/symfony_blog_2017.scss */
+.main-view-admin .blog-view-admin .field-row .table-blog .title {
+  color: #1a665a;
+  font-size: 18px;
+  padding: 5px 10px;
+}
+/* line 177, ../../sass/symfony_blog_2017.scss */
+.main-view-admin .blog-view-admin .field-row .table-blog .actions {
+  display: inline-block;
+}
+/* line 179, ../../sass/symfony_blog_2017.scss */
+.main-view-admin .blog-view-admin .field-row .table-blog .actions a {
   color: orange;
+  font-size: 18px;
   text-decoration: none;
+  padding: 5px 10px;
 }
 
-/* line 175, ../../sass/symfony_blog_2017.scss */
+/* line 192, ../../sass/symfony_blog_2017.scss */
 .pagination {
   margin: 0;
   padding: 0;
   text-align: center;
 }
-/* line 180, ../../sass/symfony_blog_2017.scss */
+/* line 197, ../../sass/symfony_blog_2017.scss */
 .pagination ul li {
   margin: 0 5px;
   padding: 0;
@@ -200,37 +220,37 @@ p {
   display: inline-block;
   color: orange;
 }
-/* line 186, ../../sass/symfony_blog_2017.scss */
+/* line 203, ../../sass/symfony_blog_2017.scss */
 .pagination ul li a {
   color: orange;
   text-decoration: none;
 }
-/* line 190, ../../sass/symfony_blog_2017.scss */
+/* line 207, ../../sass/symfony_blog_2017.scss */
 .pagination ul li.current {
   font-weight: bold;
 }
 
-/* line 197, ../../sass/symfony_blog_2017.scss */
+/* line 214, ../../sass/symfony_blog_2017.scss */
 form {
   background-color: #d5dedd;
   width: 600px;
   margin: 0 auto;
   padding: 30px;
 }
-/* line 202, ../../sass/symfony_blog_2017.scss */
+/* line 219, ../../sass/symfony_blog_2017.scss */
 form label {
   display: block;
   font-size: 17px;
   color: #1a665a;
   margin-bottom: 5px;
 }
-/* line 209, ../../sass/symfony_blog_2017.scss */
+/* line 226, ../../sass/symfony_blog_2017.scss */
 form input[type="text"], form input[type="password"], form input[type="email"] {
   width: 100%;
   border: 1px solid #b9bdbd;
   padding: 2px 5px;
 }
-/* line 215, ../../sass/symfony_blog_2017.scss */
+/* line 232, ../../sass/symfony_blog_2017.scss */
 form textarea {
   width: 100%;
   border: 1px solid #b9bdbd;
@@ -238,7 +258,7 @@ form textarea {
   resize: none;
   min-height: 200px;
 }
-/* line 222, ../../sass/symfony_blog_2017.scss */
+/* line 239, ../../sass/symfony_blog_2017.scss */
 form button {
   cursor: pointer;
   margin-top: 10px;
@@ -251,13 +271,13 @@ form button {
   text-align: center;
 }
 
-/* line 235, ../../sass/symfony_blog_2017.scss */
+/* line 252, ../../sass/symfony_blog_2017.scss */
 footer {
   background-color: #d5dedd;
   text-align: center;
   padding: 10px  0;
 }
-/* line 239, ../../sass/symfony_blog_2017.scss */
+/* line 256, ../../sass/symfony_blog_2017.scss */
 footer .block-copyright {
   color: #767979;
 }

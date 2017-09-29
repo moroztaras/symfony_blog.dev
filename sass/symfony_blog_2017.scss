@@ -147,27 +147,44 @@ p{
       .field{
         display: inline-block;
       }
-    }
-    .field-title{
-      width: calc(90% - 4px);
-      color: $title;
-      font-size: 18px;
-    }
-    .field-blog-edit{
-      width: 10%;
-      a{
-        color: orange;
-        text-decoration: none;
+      .table-blog {
+        width: 100%;
+        #id, #title, #actions{
+          background-color: $cbd;
+          text-align: center;
+          font-weight:bold;
+          color: $title;
+        }
+        #id{
+          width: 5%;
+        }
+        #title{
+          width: 70%;
+        }
+        #actions{
+          width: 25%;
+        }
+        .id{
+          color: $title;
+          font-size: 18px;
+          text-align: center;
+        }
+        .title{
+          color: $title;
+          font-size: 18px;
+          padding: 5px 10px;
+        }
+        .actions{
+          display: inline-block;
+          a{
+            color: orange;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 5px 10px;
+          }
+
+        }
       }
-      text-align: right;
-    }
-    .field-blog-delete{
-      width: 10%;
-      a{
-        color: orange;
-        text-decoration: none;
-      }
-      text-align: right;
     }
   }
 }

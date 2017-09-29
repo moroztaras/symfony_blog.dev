@@ -99,22 +99,34 @@ p {
   margin-bottom: 20px; }
   .main-view-admin .blog-view-admin .field-row .field {
     display: inline-block; }
-.main-view-admin .blog-view-admin .field-title {
-  width: calc(90% - 4px);
-  color: #1a665a;
-  font-size: 18px; }
-.main-view-admin .blog-view-admin .field-blog-edit {
-  width: 10%;
-  text-align: right; }
-  .main-view-admin .blog-view-admin .field-blog-edit a {
-    color: orange;
-    text-decoration: none; }
-.main-view-admin .blog-view-admin .field-blog-delete {
-  width: 10%;
-  text-align: right; }
-  .main-view-admin .blog-view-admin .field-blog-delete a {
-    color: orange;
-    text-decoration: none; }
+  .main-view-admin .blog-view-admin .field-row .table-blog {
+    width: 100%; }
+    .main-view-admin .blog-view-admin .field-row .table-blog #id, .main-view-admin .blog-view-admin .field-row .table-blog #title, .main-view-admin .blog-view-admin .field-row .table-blog #actions {
+      background-color: #bddad8;
+      text-align: center;
+      font-weight: bold;
+      color: #1a665a; }
+    .main-view-admin .blog-view-admin .field-row .table-blog #id {
+      width: 5%; }
+    .main-view-admin .blog-view-admin .field-row .table-blog #title {
+      width: 70%; }
+    .main-view-admin .blog-view-admin .field-row .table-blog #actions {
+      width: 25%; }
+    .main-view-admin .blog-view-admin .field-row .table-blog .id {
+      color: #1a665a;
+      font-size: 18px;
+      text-align: center; }
+    .main-view-admin .blog-view-admin .field-row .table-blog .title {
+      color: #1a665a;
+      font-size: 18px;
+      padding: 5px 10px; }
+    .main-view-admin .blog-view-admin .field-row .table-blog .actions {
+      display: inline-block; }
+      .main-view-admin .blog-view-admin .field-row .table-blog .actions a {
+        color: orange;
+        font-size: 18px;
+        text-decoration: none;
+        padding: 5px 10px; }
 
 .pagination {
   margin: 0;
