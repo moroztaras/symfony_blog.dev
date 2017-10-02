@@ -1,0 +1,31 @@
+{% extends 'BlogBundle::admin_layout.html.twig' %}
+
+{% block page_title %}Повідомлення | Адмін панель {% endblock %}
+
+{% block main %}
+    <div class="view blog-view-admin">
+        <div class="field-row">
+            <table class="table table-blog">
+                <tr>
+                    <td id="id">ID</td>
+                    <td id="created">Дата</td>
+                    <td id="send">Повідомлення</td>
+                    <td id="actions">Дії</td>
+                </tr>
+            {% for message in messages %}
+                <tr>
+                    <td class="id">{{ message.id }}</td>
+                    <td class="created">{{ message.created|date("d-m-Y H:m") }}</td>
+                    <td class="send">
+                        <a href="{{ path('admin_message_view', {id : message.id}) }}">{{ message.message }}</a>
+                    </td>
+                    <td class="actions">
+                        <a href="{{ path('admin_message_delete', {id : message.id}) }}">Видалити</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+    {{ include("BlogBundle:Include:pagination.html.twig", { "pagination" : pagination }) }}
+{% endblock %}

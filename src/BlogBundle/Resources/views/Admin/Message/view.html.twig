@@ -1,0 +1,24 @@
+{% extends 'BlogBundle::admin_layout.html.twig' %}
+
+{% block title %}Повідомлення № {{ message.id }}| Блог 2017{% endblock %}
+
+{% block page_title %}Повідомлення № {{ message.id }}{% endblock %}
+
+{% block main %}
+    <article class="block">
+        <div class="container blog-container">
+            <div class="field field_created">
+                Автор: {{ message.name }}
+            </div>
+            <div class="field field_created">
+                Email: {{ message.email }}
+            </div>
+            <div class="field field_created">
+                Надіслано: {{ message.created|date("d-m-Y H:m") }}
+            </div>
+            <div class="field field-body">
+                {{ message.message|raw }}
+            </div>
+        </div>
+    </article>
+{% endblock %}

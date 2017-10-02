@@ -149,40 +149,57 @@ p{
       }
       .table-blog {
         width: 100%;
-        #id, #title, #actions{
+        #id, #title, #actions, #send, #created{
           background-color: $cbd;
           text-align: center;
-          font-weight:bold;
+          font-weight: bold;
           color: $title;
         }
-        #id{
+        #id {
           width: 5%;
         }
-        #title{
+        #title {
           width: 70%;
         }
-        #actions{
+        #send{
+          width: 75%;
+        }
+        #created{
+          width: 10%;
+        }
+        #actions {
           width: 25%;
         }
-        .id{
+        .id {
           color: $title;
           font-size: 18px;
           text-align: center;
         }
-        .title{
+        .title {
           color: $title;
           font-size: 18px;
           padding: 5px 10px;
         }
-        .actions{
-          display: inline-block;
+        .created{
+          color: $title;
+          font-size: 10px;
+        }
+        .send{
           a{
+            color: $title;
+            font-size: 18px;
+            padding: 5px 10px;
+            text-decoration: none;
+          }
+        }
+        .actions {
+          display: inline-block;
+          a {
             color: orange;
             font-size: 18px;
             text-decoration: none;
             padding: 5px 10px;
           }
-
         }
       }
     }

@@ -1,15 +1,15 @@
 <?php
 
-namespace BlogBundle\Controller;
+namespace BlogBundle\Controller\Admin;
 
 use BlogBundle\Entity\Blog;
-use BlogBundle\Forms\FormType;
+use BlogBundle\Forms\BlogFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class AdminController extends Controller
+class AdminBlogController extends Controller
 {
     /**
      * @Route("/admin", name="admin")
@@ -37,7 +37,7 @@ class AdminController extends Controller
         ];
 
         return $this->render(
-            "BlogBundle:Admin:admin_view.html.twig",
+            "BlogBundle:Admin/Blog:admin_view.html.twig",
             [
                 "blogs"=>$blogs,
                 'pagination' => $pagination
@@ -51,7 +51,7 @@ class AdminController extends Controller
     public function createAction(Request $request)
     {
         $blog = new Blog();
-        $forms = $this->createForm(FormType::class, $blog);
+        $forms = $this->createForm(BlogFormType::class, $blog);
 
         $forms->handleRequest($request);
         if($forms->isSubmitted() && $forms->isValid())
@@ -64,7 +64,7 @@ class AdminController extends Controller
         }
 
         return $this->render(
-            "BlogBundle:Admin:admin_form_create.html.twig",
+            "BlogBundle:Admin/Blog:admin_form_create.html.twig",
             [
                 "form_create_blog" => $forms->createView()
             ]
@@ -84,7 +84,7 @@ class AdminController extends Controller
             throw $this->createAccessDeniedException("Такий блог не знайдено!");
         }
 
-        $forms = $this->createForm(FormType::class, $blog);
+        $forms = $this->createForm(BlogFormType::class, $blog);
         $forms->handleRequest($request);
         if($forms->isSubmitted() && $forms->isValid())
         {
@@ -96,7 +96,7 @@ class AdminController extends Controller
         }
 
         return $this->render(
-            "BlogBundle:Admin:admin_form_edit.html.twig",
+            "BlogBundle:Admin/Blog:admin_form_edit.html.twig",
             [
                 "form_edit_blog" => $forms->createView()
             ]
