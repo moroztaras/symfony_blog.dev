@@ -38,7 +38,7 @@ class CommentController extends Controller
             $em->flush();
             return $this->redirect($this->generateUrl('blog_view', array(
                     'id'    => $comment->getBlog()->getId(),
-                    #'slug'  => $comment->getBlog()->getSlug()
+                    'slug'  => $comment->getBlog()->getSlug()
                     )
                 ) .
                 '#comment-' . $comment->getId()

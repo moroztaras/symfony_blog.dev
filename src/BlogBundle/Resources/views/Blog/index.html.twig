@@ -9,7 +9,7 @@
     {% for blog in blogs %}
         <article class="block block-index">
             <h2 class="article-title">
-                <a href="{{ path('blog_view', {'id':blog.id}) }}">{{ blog.title }}</a>
+                <a href="{{ path('blog_view', {'id':blog.id, 'slug': blog.slug}) }}">{{ blog.title }}</a>
             </h2>
             <div class="container blog-container">
                 <div class="field field_created">
@@ -21,7 +21,7 @@
                 <nav class="link-menu" role="navigation">
                     <ul>
                         <li class="read-more">
-                            <a href="{{ path('blog_view', {'id':blog.id}) }}">Подробиці</a>
+                            <a href="{{ path('blog_view', {'id':blog.id, 'slug': blog.slug}) }}">Подробиці</a>
                         </li>
                     </ul>
                 </nav>

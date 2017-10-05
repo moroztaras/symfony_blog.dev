@@ -34,9 +34,9 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/blog/{id}", name="blog_view")
+     * @Route("/blog/{id}-{slug}", name="blog_view")
      */
-    public function showAction($id)
+    public function showAction($id, $slug)
     {
         $em = $this->getDoctrine();
         $blogRepository = $em->getRepository('BlogBundle:Blog');
