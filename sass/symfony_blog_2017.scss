@@ -266,6 +266,34 @@ form{
   }
 }
 
+.comments {
+  clear: both;
+}
+.comments .odd {
+  background: $cbd;
+}
+.comments .comment {
+  padding: 20px; }
+.comments .comment p {
+  margin-bottom: 0;
+}
+.comments h3 {
+  color: $title;
+  background: $cbd;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  clear: both;
+}
+.comments .previous-comments {
+  margin-bottom: 20px;
+}
+.previous-comments{
+  h3{
+    color: $title;
+  }
+}
+
 footer{
   background-color: $cd5;
   text-align: center;

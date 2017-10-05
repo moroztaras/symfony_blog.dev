@@ -3,7 +3,7 @@
 namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Message;
-use BlogBundle\Forms\MessageFormType;
+use BlogBundle\Form\MessageType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -16,7 +16,7 @@ class PageController extends Controller
     public function aboutUsAction(Request $request)
     {
         $message = new Message();
-        $forms = $this->createForm(MessageFormType::class, $message);
+        $forms = $this->createForm(MessageType::class, $message);
 
         $forms->handleRequest($request);
         if($forms->isSubmitted() && $forms->isValid())

@@ -292,12 +292,52 @@ form button {
 }
 
 /* line 269, ../../sass/symfony_blog_2017.scss */
+.comments {
+  clear: both;
+}
+
+/* line 272, ../../sass/symfony_blog_2017.scss */
+.comments .odd {
+  background: #bddad8;
+}
+
+/* line 275, ../../sass/symfony_blog_2017.scss */
+.comments .comment {
+  padding: 20px;
+}
+
+/* line 277, ../../sass/symfony_blog_2017.scss */
+.comments .comment p {
+  margin-bottom: 0;
+}
+
+/* line 280, ../../sass/symfony_blog_2017.scss */
+.comments h3 {
+  color: #1a665a;
+  background: #bddad8;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  clear: both;
+}
+
+/* line 288, ../../sass/symfony_blog_2017.scss */
+.comments .previous-comments {
+  margin-bottom: 20px;
+}
+
+/* line 292, ../../sass/symfony_blog_2017.scss */
+.previous-comments h3 {
+  color: #1a665a;
+}
+
+/* line 297, ../../sass/symfony_blog_2017.scss */
 footer {
   background-color: #d5dedd;
   text-align: center;
   padding: 10px  0;
 }
-/* line 273, ../../sass/symfony_blog_2017.scss */
+/* line 301, ../../sass/symfony_blog_2017.scss */
 footer .block-copyright {
   color: #767979;
 }

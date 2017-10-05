@@ -15,4 +15,12 @@
             </div>
         </div>
     </article>
+    <section class="comments" id="comments">
+        <section class="previous-comments">
+            <h3>Коментарі</h3>
+            {% include 'BlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+        </section>
+        <h3>Добавити коментарій</h3>
+        {{ render(controller( 'BlogBundle:Comment:new', { 'blog_id': blog.id } )) }}
+    </section>
 {% endblock %}

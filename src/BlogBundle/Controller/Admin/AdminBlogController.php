@@ -3,7 +3,7 @@
 namespace BlogBundle\Controller\Admin;
 
 use BlogBundle\Entity\Blog;
-use BlogBundle\Forms\BlogFormType;
+use BlogBundle\Form\BlogType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,7 +51,7 @@ class AdminBlogController extends Controller
     public function createAction(Request $request)
     {
         $blog = new Blog();
-        $forms = $this->createForm(BlogFormType::class, $blog);
+        $forms = $this->createForm(BlogType::class, $blog);
 
         $forms->handleRequest($request);
         if($forms->isSubmitted() && $forms->isValid())
@@ -84,7 +84,7 @@ class AdminBlogController extends Controller
             throw $this->createAccessDeniedException("Такий блог не знайдено!");
         }
 
-        $forms = $this->createForm(BlogFormType::class, $blog);
+        $forms = $this->createForm(BlogType::class, $blog);
         $forms->handleRequest($request);
         if($forms->isSubmitted() && $forms->isValid())
         {

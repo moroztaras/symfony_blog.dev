@@ -187,6 +187,32 @@ form {
     border-width: 0;
     text-align: center; }
 
+.comments {
+  clear: both; }
+
+.comments .odd {
+  background: #bddad8; }
+
+.comments .comment {
+  padding: 20px; }
+
+.comments .comment p {
+  margin-bottom: 0; }
+
+.comments h3 {
+  color: #1a665a;
+  background: #bddad8;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  clear: both; }
+
+.comments .previous-comments {
+  margin-bottom: 20px; }
+
+.previous-comments h3 {
+  color: #1a665a; }
+
 footer {
   background-color: #d5dedd;
   text-align: center;
