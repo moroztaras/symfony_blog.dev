@@ -47,7 +47,7 @@ class AdminMessageController extends Controller
         $message = $messageRepository->find($id);
 
         return $this->render(
-            'BlogBundle:Admin/Message:view.html.twig', [
+            'BlogBundle:Admin/Message:admin_view.html.twig', [
             'message'=>$message
         ]);
     }

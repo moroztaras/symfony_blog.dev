@@ -170,6 +170,16 @@ form {
     width: 100%;
     border: 1px solid #b9bdbd;
     padding: 2px 5px; }
+  form input[type="submit"] {
+    cursor: pointer;
+    margin-top: 10px;
+    color: white;
+    background-color: #1a665a;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-width: 0;
+    text-align: center; }
   form textarea {
     width: 100%;
     border: 1px solid #b9bdbd;
@@ -191,7 +201,7 @@ form {
   clear: both; }
 
 .comments .odd {
-  background: #bddad8; }
+  background: #d5dedd; }
 
 .comments .comment {
   padding: 20px; }
@@ -212,6 +222,13 @@ form {
 
 .previous-comments h3 {
   color: #1a665a; }
+
+.highlight {
+  color: orange; }
+
+time {
+  font-size: 14px;
+  color: #777777; }
 
 footer {
   background-color: #d5dedd;

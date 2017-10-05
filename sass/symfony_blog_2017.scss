@@ -245,6 +245,17 @@ form{
       border: 1px solid $border;
       padding: 2px 5px;
     }
+    &[type="submit"]{
+      cursor: pointer;
+      margin-top: 10px;
+      color: white;
+      background-color: $title;
+      font-size: 17px;
+      font-weight: bold;
+      padding: 5px 20px;
+      border-width: 0;
+      text-align: center;
+    }
   }
   textarea{
     width: 100%;
@@ -270,7 +281,7 @@ form{
   clear: both;
 }
 .comments .odd {
-  background: $cbd;
+  background: $cd5;
 }
 .comments .comment {
   padding: 20px; }
@@ -293,7 +304,13 @@ form{
     color: $title;
   }
 }
-
+.highlight{
+  color: orange;
+}
+time{
+  font-size: 14px;
+  color: #777777;
+}
 footer{
   background-color: $cd5;
   text-align: center;
