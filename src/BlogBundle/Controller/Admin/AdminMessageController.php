@@ -69,6 +69,7 @@ class AdminMessageController extends Controller
         $em->remove($message);
         $em->flush();
 
+        $this->addFlash('notice', 'Повідомлення видалено!');
         return $this->redirectToRoute("admin_messages");
     }
 

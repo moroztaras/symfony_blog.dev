@@ -36,5 +36,10 @@
             </div>
         </div>
     </article>
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="block-messages">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
     {{ form(form_create_message) }}
 {% endblock %}

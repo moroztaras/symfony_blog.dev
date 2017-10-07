@@ -3,6 +3,11 @@
 {% block page_title %} Коментарії | Адмін панель {% endblock %}
 
 {% block main %}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="block-messages">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
     <div class="view blog-view-admin">
         <div class="field-row">
             <table class="table table-blog">

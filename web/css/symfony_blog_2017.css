@@ -354,13 +354,22 @@ time {
   color: #777777;
 }
 
-/* line 314, ../../sass/symfony_blog_2017.scss */
+/* line 315, ../../sass/symfony_blog_2017.scss */
+.block-messages {
+  text-align: center;
+  color: #3c763d;
+  background: #88CE8B;
+  border: 2px solid #3c763d;
+  padding: 15px;
+}
+
+/* line 323, ../../sass/symfony_blog_2017.scss */
 footer {
   background-color: #d5dedd;
   text-align: center;
   padding: 10px  0;
 }
-/* line 318, ../../sass/symfony_blog_2017.scss */
+/* line 327, ../../sass/symfony_blog_2017.scss */
 footer .block-copyright {
   color: #767979;
 }

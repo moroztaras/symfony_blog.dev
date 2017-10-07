@@ -53,6 +53,7 @@ class AdminCommentController extends Controller
         $em->remove($comment);
         $em->flush();
 
+        $this->addFlash('notice', 'Коментарій видалено!');
         return $this->redirectToRoute("admin_comments");
     }
 }

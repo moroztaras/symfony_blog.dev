@@ -60,6 +60,7 @@ class AdminBlogController extends Controller
             $em->persist($blog);
             $em->flush();
 
+            $this->addFlash('notice', 'Новий пост створений!');
             return $this->redirectToRoute("admin_blogs");
         }
 
@@ -92,6 +93,7 @@ class AdminBlogController extends Controller
             $em->persist($blog);
             $em->flush();
 
+            $this->addFlash('notice', 'Пост збережений!');
             return $this->redirectToRoute("admin_blogs");
         }
 
@@ -120,6 +122,7 @@ class AdminBlogController extends Controller
         $em->remove($blog);
         $em->flush();
 
+        $this->addFlash('notice', 'Пост видалений!');
         return $this->redirectToRoute("admin_blogs");
     }
 }

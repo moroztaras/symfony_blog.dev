@@ -230,6 +230,13 @@ time {
   font-size: 14px;
   color: #777777; }
 
+.block-messages {
+  text-align: center;
+  color: #3c763d;
+  background: #88CE8B;
+  border: 2px solid #3c763d;
+  padding: 15px; }
+
 footer {
   background-color: #d5dedd;
   text-align: center;

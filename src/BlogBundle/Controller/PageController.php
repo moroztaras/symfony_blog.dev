@@ -25,6 +25,7 @@ class PageController extends Controller
             $em->persist($message);
             $em->flush();
 
+            $this->addFlash('notice', 'Повідомлення успішно надіслано!');
             return $this->redirectToRoute("about_us");
         }
 
