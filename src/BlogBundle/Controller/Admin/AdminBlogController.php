@@ -118,7 +118,6 @@ class AdminBlogController extends Controller
             throw $this->createAccessDeniedException("Такий блог не знайдено!");
         }
 
-        $em = $this->getDoctrine()->getManager();
         $em->remove($blog);
         $em->flush();
 
