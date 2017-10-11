@@ -49,6 +49,19 @@ p{
     }
 }
 
+.block-layout{
+  background-color: $cd5;
+  text-align: right;
+  padding: 10px;
+  color: $title;
+  a{
+    text-decoration: none;
+    color: $title;
+    font-weight: bold;
+
+  }
+}
+
 #menu_main_menu{
   margin-top: 30px;
   background-color: $cbd;

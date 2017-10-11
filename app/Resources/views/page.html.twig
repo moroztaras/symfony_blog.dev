@@ -11,6 +11,24 @@
                     </div>
                 </div>
             {% endblock %}
+            {% block layout %}
+                <div class="block block-layout">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="{{ path('homepage') }}profile">
+                            {{ app.user.username }}
+                        </a> |
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <a href="{{ path('admin') }}">{{ 'admin'|trans({}, 'FOSUserBundle') }}</a> |
+                        {% endif %}
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> |
+                        <a href="{{ path('homepage') }}register">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                    {% endif %}
+                </div>
+            {% endblock %}
             {% block main_menu %}
                 <div class="main-menu" id="menu_main_menu">
                     <div class="type-menu">

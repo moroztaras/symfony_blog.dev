@@ -34,6 +34,16 @@ p {
     width: 960px;
     text-align: center; }
 
+.block-layout {
+  background-color: #d5dedd;
+  text-align: right;
+  padding: 10px;
+  color: #1a665a; }
+  .block-layout a {
+    text-decoration: none;
+    color: #1a665a;
+    font-weight: bold; }
+
 #menu_main_menu {
   margin-top: 30px;
   background-color: #bddad8; }
