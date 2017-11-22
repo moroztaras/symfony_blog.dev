@@ -1,0 +1,44 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block title %}Блог 2017 | {{ page_title }}{% endblock %}
+
+{% block sonata_page_content_header %}
+    <h1>{{ page_title }}</h1>
+{% endblock %}
+
+{% block sonata_admin_content %}
+    <div class="hidden-xs">
+        <ol class="nav navbar-top-links breadcrumb">
+            <li><a href="{{ path('sonata_admin_blogs') }}">Блоги</a></li>
+            <li class="active"><span>{{ page_title }}</span></li>
+        </ol>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="panel panel-default">
+                    <div class="panel-body bg-success">
+                        {{ flash_message }}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Блог</h3>
+                </div>
+                {{ form_start(form, {class: 'form-horizontal'}) }}
+                <div class="box-body">
+                    {{ form_row(form.title) }}
+                    {{ form_row(form.summary) }}
+                    {{ form_row(form.body) }}
+                </div>
+                <div class="box-footer">
+                    <a href="{{ path('sonata_admin_blogs') }}" class="btn btn-default">Повернутися до списку</a>
+                    <button type="submit" class="btn btn-primary pull-right">Збереги <i class="fa fa-arrow-circle-right"></i></button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock sonata_admin_content %}

@@ -19,7 +19,7 @@
                         </a> |
                         {% if is_granted("ROLE_ADMIN") %}
                             <a href="{{ path('admin') }}">{{ 'admin'|trans({}, 'FOSUserBundle') }}</a> |
-                            <a href="{{ path('homepage') }}sonata_admin">Sonata {{ 'admin'|trans({}, 'FOSUserBundle') }}</a> |
+                            <a href="{{ path('sonata_admin') }}">Sonata {{ 'admin'|trans({}, 'FOSUserBundle') }}</a> |
                         {% endif %}
                         <a href="{{ path('fos_user_security_logout') }}">
                             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}

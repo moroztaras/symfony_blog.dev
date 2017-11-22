@@ -1,0 +1,61 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block title %}Блог 2017 | Блоги{% endblock %}
+
+{% block sonata_page_content_header %}
+    <h1>Блоги</h1>
+{% endblock %}
+
+{% block sonata_admin_content %}
+    <div class="sonata-ba-content">
+        <div class="row">
+            <div class="col-md-12">
+                {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="panel panel-default">
+                        <div class="panel-body bg-success">
+                            {{ flash_message }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="box box-info">
+                    <div class="box-body">
+                        <a href="{{ path('sonata_admin_blog_create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
+                            Добавить блог
+                        </a>
+                    </div>
+                </div>
+                {% if blogs %}
+                    <div class="box box-info">
+                        <div class="box-body">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Дата</th>
+                                    <th class="text-center">Заголовок</th>
+                                    <th></th>
+                                </tr>
+                                {% for blog in blogs %}
+                                    <tr>
+                                        <td class="text-center">{{ blog.id }}</td>
+                                        <td class="text-center">{{ blog.created|date("d-m-Y H:m") }}</td>
+                                        <td>{{ blog.title }}</td>
+                                        <td class="actions">
+                                            <a href="{{ path('sonata_admin_blog_edit', {'id': blog.id}) }}" class="btn btn-primary a-btn-slide-text">
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+
+                                            </a>
+                                            <a class="btn btn-danger" href="{{ path('sonata_admin_blog_delete', {'id': blog.id}) }}"><span class="glyphicon glyphicon-trash"></span>
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock sonata_admin_content %}
