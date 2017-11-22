@@ -3,7 +3,6 @@
 namespace BlogBundle\Controller\SonataAdmin;
 
 use BlogBundle\Entity\Blog;
-use BlogBundle\Form\BlogType;
 use BlogBundle\Form\SonataBlogType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -81,7 +80,6 @@ class SonataAdminBlogController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-#            $product = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($blog);
             $em->flush();
@@ -113,7 +111,7 @@ class SonataAdminBlogController extends Controller
         $em->remove($blog);
         $em->flush();
 
-        $this->addFlash('notice', 'Блог удалений.');
+        $this->addFlash('notice', 'Блог видалений.');
 
         return $this->redirectToRoute('sonata_admin_blogs');
     }

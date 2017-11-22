@@ -1,0 +1,50 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block title %}Блог 2017 | Блоги{% endblock %}
+
+{% block sonata_page_content_header %}
+    <h1>Коментарії</h1>
+{% endblock %}
+
+{% block sonata_admin_content %}
+    <div class="sonata-ba-content">
+        <div class="row">
+            <div class="col-md-12">
+                {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="panel panel-default">
+                        <div class="panel-body bg-success">
+                            {{ flash_message }}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% if comments %}
+                    <div class="box box-info">
+                        <div class="box-body">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Дата</th>
+                                    <th class="text-center">Коментарії</th>
+                                    <th></th>
+                                </tr>
+                                {% for comment in comments %}
+                                    <tr>
+                                        <td class="text-center">{{ comment.id }}</td>
+                                        <td class="text-center">{{ comment.created|date("d-m-Y H:m") }}</td>
+                                        <td><a href="{{ path('blog_view', {id : comment.blog.id, slug: comment.blog.slug}) }}#comment-{{ comment.id }}">{{ comment.comment }}</a></td>
+                                        <td class="actions">
+                                            <a class="btn btn-danger" href="{{ path('sonata_admin_comment_delete', {'id': comment.id}) }}"><span class="glyphicon glyphicon-trash"></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock sonata_admin_content %}
