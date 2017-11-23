@@ -1,9 +1,9 @@
 {% extends 'SonataAdminBundle::standard_layout.html.twig' %}
 
-{% block title %}Блог 2017 | Коментарії{% endblock %}
+{% block title %}Блог 2017 | Повідомлення{% endblock %}
 
 {% block sonata_page_content_header %}
-    <h1>Коментарії</h1>
+    <h1>Повідомлення</h1>
 {% endblock %}
 
 {% block sonata_admin_content %}
@@ -18,23 +18,25 @@
                     </div>
                 {% endfor %}
 
-                {% if comments %}
+                {% if messages %}
                     <div class="box box-info">
                         <div class="box-body">
                             <table class="table table-striped">
                                 <tr>
                                     <th class="text-center">ID</th>
                                     <th class="text-center">Дата</th>
-                                    <th class="text-center">Коментарії</th>
+                                    <th class="text-center">Автор</th>
+                                    <th class="text-center">Повідомлення</th>
                                     <th></th>
                                 </tr>
-                                {% for comment in comments %}
+                                {% for message in messages %}
                                     <tr>
-                                        <td class="text-center">{{ comment.id }}</td>
-                                        <td class="text-center">{{ comment.created|date("d-m-Y H:m") }}</td>
-                                        <td><a href="{{ path('blog_view', {id : comment.blog.id, slug: comment.blog.slug}) }}#comment-{{ comment.id }}">{{ comment.comment }}</a></td>
+                                        <td class="text-center">{{ message.id }}</td>
+                                        <td class="text-center">{{ message.created|date("d-m-Y H:m") }}</td>
+                                        <td class="text-center">{{ message.name }}</td>
+                                        <td class="text-center"><a href="{{ path('sonata_admin_message_view', {'id': message.id}) }}">{{ message.message }}</a></td>
                                         <td class="actions">
-                                            <a class="btn btn-danger" href="{{ path('sonata_admin_comment_delete', {'id': comment.id}) }}"><span class="glyphicon glyphicon-trash"></span>
+                                            <a class="btn btn-danger" href="{{ path('sonata_admin_message_delete', {'id': message.id}) }}"><span class="glyphicon glyphicon-trash"></span>
                                             </a>
                                         </td>
                                     </tr>

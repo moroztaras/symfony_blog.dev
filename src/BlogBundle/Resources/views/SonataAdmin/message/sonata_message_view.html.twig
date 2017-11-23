@@ -1,0 +1,48 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block title %}Повідомлення №{{ message.id }}{% endblock %}
+
+{% block sonata_page_content_header %}
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Повідомлення №{{ message.id }} - {{ message.created|date("d-m-Y H:m") }}</h3>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sonata_admin_content %}
+    <div class="hidden-xs">
+        <ol class="breadcrumb">
+            <li><a href="{{ path('sonata_admin_messages') }}">Повідомлення</a></li>
+            <li class="active">
+                Повідомлення №{{ message.id }} - {{ message.created|date("d-m-Y H:m") }}
+            </li>
+        </ol>
+    </div>
+    <div class="sonata-ba-content">
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Повідомлення №{{ message.id }}</h3>
+                        </div>
+                        <div class="box-body">
+                            <dl class="dl-horizontal">
+                                <dt>Дата</dt>
+                                <dd>{{ message.created|date("d-m-Y H:m") }}</dd>
+
+                                <dt>Автор</dt>
+                                <dd>{{ message.name }}</dd>
+
+                                <dt>Повідомлення</dt>
+                                <dd>{{ message.message }}</dd>
+                            </dl>
+                        </div>
+                        <div class="box-footer">
+                            <a href="{{ path('sonata_admin_messages') }}" class="btn btn-default">Повернутися до списку</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock sonata_admin_content %}
