@@ -1,17 +1,25 @@
-<ul>
-    <li class="current first">
-        <a href="{{ path('sonata_admin') }}">Головна</a>
+<ul class="nav sidebar-nav">
+    <li class="sidebar-brand">
+        <a href="{{ path('sonata_admin') }}">
+            Головна
+        </a>
     </li>
-    <li class="current_ancestor">
+    <li>
         <a href="{{ path('sonata_admin_blogs') }}">Блоги</a>
     </li>
-    <li class="current_ancestor">
+    <li>
         <a href="{{ path('sonata_admin_comments') }}">Коментарії</a>
     </li>
-    <li class="current_ancestor">
+    <li>
         <a href="{{ path('sonata_admin_messages') }}">Повідомлення</a>
     </li>
-    <li class="current_ancestor">
-        <a href="#">Користувачі</a>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Користувачі<span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="dropdown-header">Dropdown heading</li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+        </ul>
     </li>
 </ul>
