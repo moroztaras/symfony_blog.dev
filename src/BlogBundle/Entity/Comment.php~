@@ -41,7 +41,7 @@ class Comment
     protected $approved;
     /**
      * @ORM\ManyToOne(targetEntity="Blog", inversedBy="comments")
-     * @ORM\JoinColumn(name="blog_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="blog_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     protected $blog;
     /**
@@ -55,8 +55,8 @@ class Comment
 
     public function __construct()
     {
-#        $this->setCreated(new \DateTime());
-#        $this->setUpdated(new \DateTime());
-#        $this->setApproved(true);
+        $this->setCreated(new \DateTime());
+        $this->setUpdated(new \DateTime());
+        $this->setApproved(true);
     }
 }

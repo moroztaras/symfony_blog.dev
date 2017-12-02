@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class AdminBlogController extends Controller
 {
@@ -107,17 +108,15 @@ class AdminBlogController extends Controller
 
     /**
      * @Route("/admin/blog/{id}/delete", name="admin_blog_delete")
+     * @Method("GET")
      */
-    public function deleteAction($id)
+    public function deleteAction(Request $request, Blog $blog)
     {
         $em = $this->getDoctrine()->getManager();
-        $blog = $em->getRepository("BlogBundle:Blog")->find($id);
-
         if (!$blog)
         {
             throw $this->createAccessDeniedException("Такий блог не знайдено!");
         }
-
         $em->remove($blog);
         $em->flush();
 
