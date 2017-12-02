@@ -22,7 +22,7 @@
                     <td class="id">{{ comment.id }}</td>
                     <td class="created">{{ comment.created|date("d-m-Y H:m") }}</td>
                     <td class="send">
-                        <a href="#">
+                        <a href="{{ path('blog_view', {id : comment.blog.id, slug : comment.blog.slug}) }}#comment-{{ comment.id }}">
                             {{ comment.comment }}
                         </a>
                     </td>
