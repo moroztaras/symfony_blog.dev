@@ -18,23 +18,38 @@
                     </div>
                 {% endfor %}
                 <div class="box box-info">
-                    <div class="box-body">
+                    <div class="box-header">
                         <a href="{{ path('sonata_admin_blog_create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
                             Добавить блог
                         </a>
+                        <a href="#filter" class="btn btn-default" data-toggle="collapse" aria-expanded="{% if filterActive %}true{% else %}false{% endif %}" aria-controls="filter"><i class="fa fa-filter"></i>
+                            Фільтр
+                        </a>
+                        <div class="collapse{% if filterActive %} in{% endif %}" id="filter">
+                            {{ form_start(form) }}
+                            <div class="box-body">
+                                <div class="form-group col-md-4">
+                                    {{ form_row(form.title) }}
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <button type="submit" role="button" class="btn btn-primary">Показать</button>
+                                <a href="{{ path(app.request.get('_route'), { 'reset': true }) }}" role="button" class="btn btn-default">Сбросить</a>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
                     </div>
-                </div>
-                {% if blogs %}
+    {% if pagination %}
                     <div class="box box-info">
                         <div class="box-body">
                             <table class="table table-striped">
                                 <tr>
                                     <th class="text-center">ID</th>
                                     <th class="text-center">Дата</th>
-                                    <th class="text-center">Заголовок</th>
+                                    <th>{{ knp_pagination_sortable(pagination, 'Заголовок', 'b.title') }}</th>
                                     <th></th>
                                 </tr>
-                                {% for blog in blogs %}
+                                {% for blog in pagination %}
                                     <tr>
                                         <td class="text-center">{{ blog.id }}</td>
                                         <td class="text-center">{{ blog.created|date("d-m-Y H:m") }}</td>
@@ -51,10 +66,12 @@
                                     </tr>
                                 {% endfor %}
                             </table>
+                            <div class="navigation text-center">
+                                {{ knp_pagination_render(pagination) }}
+                            </div>
                         </div>
                     </div>
-                {% endif %}
-
+            {% endif %}
             </div>
         </div>
     </div>

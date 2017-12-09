@@ -4,6 +4,8 @@ namespace BlogBundle\Controller\SonataAdmin;
 
 use BlogBundle\Entity\Blog;
 use BlogBundle\Form\SonataBlogType;
+use BlogBundle\Filter\BlogFilter;
+use BlogBundle\Filter\Form\BlogFilterForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,18 +22,43 @@ class SonataAdminBlogController extends Controller
     {
         return $this->redirectToRoute('sonata_admin_blogs');
     }
+
     /**
      * @Route("/sonata_admin/blogs", name="sonata_admin_blogs")
+     *
+     * @param Request $request
+     * @return Response
      */
-    public function sonataBlogsAction()
+    public function sonataBlogsAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $blogs = $em->getRepository('BlogBundle:Blog')->getLatestBlogs();
+        $paginator = $this->get('knp_paginator');
+        $blogsService = $this->get('blog.blogs');
+        $sessionService = $this->get('blog.sessions');
+        $filter = new BlogFilter();
+
+        $form = $this->createForm(BlogFilterForm::class, $filter);
+        $form->handleRequest($request);
+
+        if(false == $sessionService->updateFilterFromSession($form, $filter)) {
+            $this->addFlash('error', 'Помилка в параметрах фільтра');
+        }
+
+        $query = $blogsService->getFilteredBlogs($filter);
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            5
+        );
 
         return $this->render(
-            'BlogBundle:SonataAdmin:blog\sonata_blogs.html.twig', array(
-            'blogs'      => $blogs,
-        ));
+            'BlogBundle:SonataAdmin:blog\sonata_blogs.html.twig',
+            [
+                'pagination' => $pagination,
+                'form' => $form->createView(),
+                'filterActive' => $sessionService->getFilterStatus(),
+            ]
+        );
     }
 
     /**
