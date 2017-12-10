@@ -12,11 +12,6 @@ class BlogFilter
 	 */
 	protected $title;
 
-    	/**
-         * @var \DateTime
-         */
-	protected $created;
-
 	/**
 	 * @return string
 	 */
@@ -32,19 +27,4 @@ class BlogFilter
 	{
 		$this->title = $title;
 	}
-    /**
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * @param \DateTime $created
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-    }
 }

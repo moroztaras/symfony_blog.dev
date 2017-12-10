@@ -34,7 +34,7 @@
                             </div>
                             <div class="box-footer">
                                 <button type="submit" role="button" class="btn btn-primary">Показать</button>
-                                <a href="{{ path(app.request.get('_route'), { 'reset': true }) }}" role="button" class="btn btn-default">Сбросить</a>
+                                <a href="{{ path(app.request.get('_route'), { 'reset': true }) }}" role="button" class="btn btn-default">Скинути</a>
                             </div>
                             {{ form_end(form) }}
                         </div>
@@ -44,9 +44,9 @@
                         <div class="box-body">
                             <table class="table table-striped">
                                 <tr>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">Дата</th>
-                                    <th>{{ knp_pagination_sortable(pagination, 'Заголовок', 'b.title') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Id', 'b.id') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Дата', 'b.created') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Заголовок', 'b.title') }}</th>
                                     <th></th>
                                 </tr>
                                 {% for blog in pagination %}

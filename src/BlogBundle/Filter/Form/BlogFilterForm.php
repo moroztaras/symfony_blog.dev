@@ -16,7 +16,10 @@ class BlogFilterForm extends AbstractType
 		$builder
 			->add('title', TextType::class, [
 				'required' => false,
-				'label' => 'Заголовок'
+				'label' => 'Заголовок',
+                'attr' => [
+                    'class' => 'form-control',
+                ],
 			])
 		;
 	}
