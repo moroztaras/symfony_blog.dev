@@ -3,6 +3,8 @@
 namespace BlogBundle\Controller\SonataAdmin;
 
 use BlogBundle\Entity\Comment;
+use BlogBundle\Filter\CommentFilter;
+use BlogBundle\Filter\Form\CommentFilterForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,16 +15,47 @@ class SonataAdminCommentController extends Controller
 {
     /**
      * @Route("/sonata_admin/comments", name="sonata_admin_comments")
+     *
+     * @param Request $request
+     * @return Response
      */
-    public function sonataCommentAction()
+    public function sonataCommentAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $comments = $em->getRepository("BlogBundle:Comment")->findAll();
+        $paginator = $this->get('knp_paginator');
+        $commentsService = $this->get('blog.comments');
+        $sessionService = $this->get('blog.sessions');
+        $filter = new CommentFilter();
+
+        $form = $this->createForm(CommentFilterForm::class, $filter);
+        $form->handleRequest($request);
+
+        if(false == $sessionService->updateFilterFromSession($form, $filter)) {
+            $this->addFlash('error', 'Помилка в параметрах фільтра');
+        }
+
+        $query = $commentsService->getFilteredComments($filter);
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            20
+        );
 
         return $this->render(
-            'BlogBundle:SonataAdmin:comment\sonata_comments.html.twig', array(
-            'comments'      => $comments
-        ));
+            'BlogBundle:SonataAdmin:comment\sonata_comments.html.twig',
+            [
+                'pagination' => $pagination,
+                'form' => $form->createView(),
+                'filterActive' => $sessionService->getFilterStatus(),
+            ]
+        );
+#        $em = $this->getDoctrine()->getManager();
+#        $comments = $em->getRepository("BlogBundle:Comment")->findAll();
+
+#        return $this->render(
+#            'BlogBundle:SonataAdmin:comment\sonata_comments.html.twig', array(
+#            'comments'      => $comments
+#        ));
     }
 
     /**

@@ -2,6 +2,9 @@ services:
     blog.blogs:
         class: BlogBundle\Service\BlogsService
         arguments: [ "@doctrine" ]
+    blog.comments:
+         class: BlogBundle\Service\CommentsService
+         arguments: [ "@doctrine" ]
     blog.messages:
         class: BlogBundle\Service\MessagesService
         arguments: [ "@doctrine" ]

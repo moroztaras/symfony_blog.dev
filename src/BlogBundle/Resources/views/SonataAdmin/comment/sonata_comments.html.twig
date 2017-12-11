@@ -7,28 +7,46 @@
 {% endblock %}
 
 {% block sonata_admin_content %}
-    <div class="sonata-ba-content">
-        <div class="row">
-            <div class="col-md-12">
-                {% for flash_message in app.session.flashBag.get('notice') %}
-                    <div class="panel panel-default">
-                        <div class="panel-body bg-success">
-                            {{ flash_message }}
-                        </div>
+<div class="sonata-ba-content">
+    <div class="row">
+        <div class="col-md-12">
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="panel panel-default">
+                    <div class="panel-body bg-success">
+                        {{ flash_message }}
                     </div>
-                {% endfor %}
-
-                {% if comments %}
+                </div>
+            {% endfor %}
+            <div class="box box-info">
+                <div class="box-header">
+                    <a href="#filter" class="btn btn-default" data-toggle="collapse" aria-expanded="{% if filterActive %}true{% else %}false{% endif %}" aria-controls="filter"><i class="fa fa-filter"></i>
+                        Фільтр
+                    </a>
+                    <div class="collapse{% if filterActive %} in{% endif %}" id="filter">
+                        {{ form_start(form) }}
+                        <div class="box-body">
+                            <div class="form-group col-md-4">
+                                {{ form_row(form.comment) }}
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" role="button" class="btn btn-primary">Показать</button>
+                            <a href="{{ path(app.request.get('_route'), { 'reset': true }) }}" role="button" class="btn btn-default">Скинути</a>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+                {% if pagination %}
                     <div class="box box-info">
                         <div class="box-body">
                             <table class="table table-striped">
                                 <tr>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">Дата</th>
-                                    <th class="text-center">Коментарії</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Id', 'c.id') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Дата', 'c.created') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Коментарі', 'c.comment') }}</th>
                                     <th></th>
                                 </tr>
-                                {% for comment in comments %}
+                                {% for comment in pagination %}
                                     <tr>
                                         <td class="text-center">{{ comment.id }}</td>
                                         <td class="text-center">{{ comment.created|date("d-m-Y H:m") }}</td>
@@ -40,10 +58,12 @@
                                     </tr>
                                 {% endfor %}
                             </table>
+                            <div class="navigation text-center">
+                                {{ knp_pagination_render(pagination) }}
+                            </div>
                         </div>
                     </div>
                 {% endif %}
-
             </div>
         </div>
     </div>
