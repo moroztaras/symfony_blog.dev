@@ -10,7 +10,6 @@ use Doctrine\ORM\EntityRepository;
 
 class BlogsService
 {
-
     /**
      * @var Registry
      */
@@ -43,6 +42,10 @@ class BlogsService
             $qb->setParameter(':title', "%" . $filter->getTitle() . "%");
         }
 
+        if ($filter->getCreated()) {
+            $qb->andWhere('b.created >= :created');
+            $qb->setParameter(':created', $filter->getCreated());
+        }
         return $qb->getQuery();
     }
 }

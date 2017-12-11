@@ -14,6 +14,21 @@ class BlogFilterForm extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder
+            ->add(
+                'created',
+                DateType::class,
+                [
+                    'label' => 'Дата',
+                    'widget' => 'single_text',
+                    'format' => 'dd.MM.yyyy',
+                    'attr' => [
+                        'class' => 'form-control datepicker populate-start-at',
+                        'data-provide' => 'datepicker',
+                        'data-date-format' => 'dd.mm.yyyy',
+                    ],
+                    'required' => false,
+                ]
+            )
 			->add('title', TextType::class, [
 				'required' => false,
 				'label' => 'Заголовок',
