@@ -3,6 +3,8 @@
 namespace BlogBundle\Controller\SonataAdmin;
 
 use BlogBundle\Entity\Message;
+use BlogBundle\Filter\MessageFilter;
+use BlogBundle\Filter\Form\MessageFilterForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,16 +15,47 @@ class SonataAdminMessageController extends Controller
 {
     /**
      * @Route("/sonata_admin/messages", name="sonata_admin_messages")
+     *
+     * @param Request $request
+     * @return Response
      */
-    public function sonataMessageAction()
+    public function sonataMessageAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $messages = $em->getRepository("BlogBundle:Message")->findAll();
+        $paginator = $this->get('knp_paginator');
+        $messagesService = $this->get('blog.messages');
+        $sessionService = $this->get('blog.sessions');
+        $filter = new MessageFilter();
+
+        $form = $this->createForm(MessageFilterForm::class, $filter);
+        $form->handleRequest($request);
+
+        if(false == $sessionService->updateFilterFromSession($form, $filter)) {
+            $this->addFlash('error', 'Помилка в параметрах фільтра');
+        }
+
+        $query = $messagesService->getFilteredMessages($filter);
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            20
+        );
 
         return $this->render(
-            'BlogBundle:SonataAdmin:message\sonata_messages.html.twig', array(
-            'messages'      => $messages
-        ));
+            'BlogBundle:SonataAdmin:message\sonata_messages.html.twig',
+            [
+                'pagination' => $pagination,
+                'form' => $form->createView(),
+                'filterActive' => $sessionService->getFilterStatus(),
+            ]
+        );
+#        $em = $this->getDoctrine()->getManager();
+#        $messages = $em->getRepository("BlogBundle:Message")->findAll();
+
+#        return $this->render(
+#            'BlogBundle:SonataAdmin:message\sonata_messages.html.twig', array(
+#            'messages'      => $messages
+#        ));
     }
 
     /**

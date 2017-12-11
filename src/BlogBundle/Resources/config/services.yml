@@ -2,6 +2,9 @@ services:
     blog.blogs:
         class: BlogBundle\Service\BlogsService
         arguments: [ "@doctrine" ]
+    blog.messages:
+        class: BlogBundle\Service\MessagesService
+        arguments: [ "@doctrine" ]
     blog.sessions:
         class: BlogBundle\Service\SessionsService
         arguments: ["@request_stack", "@doctrine"]

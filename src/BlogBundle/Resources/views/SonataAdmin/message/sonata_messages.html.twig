@@ -7,34 +7,55 @@
 {% endblock %}
 
 {% block sonata_admin_content %}
-    <div class="sonata-ba-content">
-        <div class="row">
-            <div class="col-md-12">
-                {% for flash_message in app.session.flashBag.get('notice') %}
-                    <div class="panel panel-default">
-                        <div class="panel-body bg-success">
-                            {{ flash_message }}
-                        </div>
+<div class="sonata-ba-content">
+    <div class="row">
+        <div class="col-md-12">
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="panel panel-default">
+                    <div class="panel-body bg-success">
+                        {{ flash_message }}
                     </div>
-                {% endfor %}
-
-                {% if messages %}
+                </div>
+            {% endfor %}
+            <div class="box box-info">
+                <div class="box-header">
+                    <a href="#filter" class="btn btn-default" data-toggle="collapse" aria-expanded="{% if filterActive %}true{% else %}false{% endif %}" aria-controls="filter"><i class="fa fa-filter"></i>
+                        Фільтр
+                    </a>
+                    <div class="collapse{% if filterActive %} in{% endif %}" id="filter">
+                        {{ form_start(form) }}
+                        <div class="box-body">
+                            <div class="form-group col-md-4">
+                                {{ form_row(form.name) }}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {{ form_row(form.message) }}
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" role="button" class="btn btn-primary">Показать</button>
+                            <a href="{{ path(app.request.get('_route'), { 'reset': true }) }}" role="button" class="btn btn-default">Скинути</a>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+                {% if pagination %}
                     <div class="box box-info">
                         <div class="box-body">
                             <table class="table table-striped">
                                 <tr>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">Дата</th>
-                                    <th class="text-center">Автор</th>
-                                    <th class="text-center">Повідомлення</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Id', 'm.id') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Дата', 'm.created') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Автор', 'm.name') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Повідомлення', 'm.message') }}</th>
                                     <th></th>
                                 </tr>
-                                {% for message in messages %}
+                                {% for message in pagination %}
                                     <tr>
                                         <td class="text-center">{{ message.id }}</td>
                                         <td class="text-center">{{ message.created|date("d-m-Y H:m") }}</td>
                                         <td class="text-center">{{ message.name }}</td>
-                                        <td class="text-center"><a href="{{ path('sonata_admin_message_view', {'id': message.id}) }}">{{ message.message }}</a></td>
+                                        <td><a href="{{ path('sonata_admin_message_view', {'id': message.id}) }}">{{ message.message }}</a></td>
                                         <td class="actions">
                                             <a class="btn btn-danger" href="{{ path('sonata_admin_message_delete', {'id': message.id}) }}"><span class="glyphicon glyphicon-trash"></span>
                                             </a>
@@ -42,10 +63,12 @@
                                     </tr>
                                 {% endfor %}
                             </table>
+                            <div class="navigation text-center">
+                                {{ knp_pagination_render(pagination) }}
+                            </div>
                         </div>
                     </div>
                 {% endif %}
-
             </div>
         </div>
     </div>
