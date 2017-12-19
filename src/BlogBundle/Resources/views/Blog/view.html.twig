@@ -8,7 +8,7 @@
     <article class="block">
         <div class="container blog-container">
             <div class="field field_created">
-                Опобліковано: {{ blog.created|date("d-m-Y H:m") }}
+                Опобліковано: {{ blog.created|date("d-m-Y H:m") }} | Коментарі: {{ comments_count }} | Переглядів: {{ blog.views }}
             </div>
             <div class="field field-body">
                 {{ blog.body|raw }}

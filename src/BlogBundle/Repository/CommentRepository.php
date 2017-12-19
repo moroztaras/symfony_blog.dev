@@ -18,8 +18,7 @@ class CommentRepository extends EntityRepository
             $qb->andWhere('c.approved = :approved')
                 ->setParameter('approved', $approved);
 
-        return $qb->getQuery()
-            ->getResult();
+        return $qb->getQuery()->getResult();
     }
 
     public function findAllCommentCount()

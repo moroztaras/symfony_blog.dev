@@ -55,8 +55,14 @@ class Blog
      */
     protected $slug;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $views;
+
     public function __construct()
     {
+   #     $this->views = 0;
         $this->created = new \DateTime();
         $this->comments = new ArrayCollection();
     }
@@ -246,5 +252,26 @@ class Blog
             return 'n-a';
         }
         return $text;
+    }
+    /**
+     * Set views
+     *
+     * @param integer $views
+     * @return Blog
+     */
+    public function setViews($views=0)
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+    /**
+     * Get views
+     *
+     * @return integer
+     */
+    public function getViews()
+    {
+        return $this->views;
     }
 }

@@ -5,6 +5,7 @@ namespace BlogBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\Count;
 
 class BlogController extends Controller
 {
@@ -38,12 +39,14 @@ class BlogController extends Controller
      */
     public function showAction($id, $slug)
     {
-        $em = $this->getDoctrine();
-        $blogRepository = $em->getRepository('BlogBundle:Blog');
+        $em = $this->getDoctrine()->getManager();
+        $blog = $em->getRepository('BlogBundle:Blog')->find($id);
+        $blog->setViews($blog->getViews()+1);
+        $em->flush();
 
-        $blog = $blogRepository->find($id);
         $comments = $em->getRepository('BlogBundle:Comment')
             ->getCommentsForBlog($blog->getId());
+        $comments_count = count($comments);
 
         if (!$blog) {
             throw $this->createNotFoundException('Вказаний пост не знайдений');
@@ -52,7 +55,8 @@ class BlogController extends Controller
         return $this->render(
             'BlogBundle:Blog:view.html.twig',[
                 'blog'=>$blog,
-                'comments'  => $comments
+                'comments'  => $comments,
+                'comments_count' => $comments_count
         ]);
     }
 }
