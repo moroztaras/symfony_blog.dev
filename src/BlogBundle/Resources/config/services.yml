@@ -11,3 +11,8 @@ services:
     blog.sessions:
         class: BlogBundle\Service\SessionsService
         arguments: ["@request_stack", "@doctrine"]
+    blog.flash_listener:
+        class: BlogBundle\Listener\FlashListener
+        arguments: ["@session"]
+        tags:
+            - { name: kernel.event_subscriber }

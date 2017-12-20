@@ -3,7 +3,9 @@
 namespace BlogBundle\Controller\Admin;
 
 use BlogBundle\Entity\Blog;
+use BlogBundle\Event\BlogEvent;
 use BlogBundle\Form\BlogType;
+use BlogBundle\BlogBundleEvents;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,7 +63,10 @@ class AdminBlogController extends Controller
             $em->persist($blog);
             $em->flush();
 
-            $this->addFlash('notice', 'Новий пост створений!');
+            $dispatcher = $this->get('event_dispatcher');
+            $event = new BlogEvent($blog);
+            $dispatcher->dispatch(BlogBundleEvents::BLOG_CREATED, $event);
+
             return $this->redirectToRoute("admin_blogs");
         }
 

@@ -62,7 +62,7 @@ class Blog
 
     public function __construct()
     {
-   #     $this->views = 0;
+        $this->views = 0;
         $this->created = new \DateTime();
         $this->comments = new ArrayCollection();
     }
