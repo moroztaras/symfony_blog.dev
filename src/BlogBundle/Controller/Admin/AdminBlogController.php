@@ -99,7 +99,10 @@ class AdminBlogController extends Controller
             $em->persist($blog);
             $em->flush();
 
-            $this->addFlash('notice', 'Пост збережений!');
+            $dispatcher = $this->get('event_dispatcher');
+            $event = new BlogEvent($blog);
+            $dispatcher->dispatch(BlogBundleEvents::BLOG_EDIT, $event);
+
             return $this->redirectToRoute("admin_blogs");
         }
 
@@ -125,7 +128,10 @@ class AdminBlogController extends Controller
         $em->remove($blog);
         $em->flush();
 
-        $this->addFlash('notice', 'Пост видалений!');
+        $dispatcher = $this->get('event_dispatcher');
+        $event = new BlogEvent($blog);
+        $dispatcher->dispatch(BlogBundleEvents::BLOG_DELETE, $event);
+
         return $this->redirectToRoute("admin_blogs");
     }
 }

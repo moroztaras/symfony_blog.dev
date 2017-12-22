@@ -2,13 +2,12 @@
 
 namespace BlogBundle\Listener;
 
-use BlogBundle\BlogBundle;
 use BlogBundle\BlogBundleEvents;
-use BlogBundle\Event\BlogEvent;
+use BlogBundle\Event\CommentEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-class FlashListener implements EventSubscriberInterface
+class CommentFlashListener implements EventSubscriberInterface
 {
     private $session;
 
@@ -21,16 +20,16 @@ class FlashListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            BlogBundleEvents::BLOG_CREATED => 'onFlash'
+            BlogBundleEvents::COMMENT_DELETE => 'onFlashDelete',
         ];
     }
 
-    public function onFlash(BlogEvent $event)
+    public function onFlashDelete(CommentEvent $event)
     {
-        $blog = $event->getBlog();
+        $comment = $event->getComment();
         $this->session->getFlashBag()->add(
             'success',
-            sprintf('Новий пост "%s" успішно добавлено!',$blog->getTitle())
+            sprintf('Коментарій від "%s" видалений!',$comment->getUser())
         );
     }
 }

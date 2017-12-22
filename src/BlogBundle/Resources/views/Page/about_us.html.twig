@@ -24,7 +24,7 @@
                             <div class="field_created">
                                 <center><strong>Контакти</strong></center>
                                 <img id="img_phone" src="{{ asset('images/mobile_icon.jpg')}}"  width='4%'/> 098-852-16-75, 050-071-38-60<br>
-                                <img id="img_viber" src="{{ asset('images/viber_icon.png')}}"  width='4%'title="Viber"/> 098-852-16-75<br>
+                                <img id="img_viber" src="{{ asset('images/viber_icon.png')}}"  width='4%' title="Viber"/> 098-852-16-75<br>
                                 <img id="img_vk" src="{{ asset('images/vk_icon.png')}}"  width='4%'/>
                                 <a href="http://vk.com\moroztaras">Мороз Тарас</a><br>
                                 <img id="img_skype" src="{{ asset('images/skype_icon.png')}}"  width='4%'/> tarasmoroz<br>
@@ -38,10 +38,12 @@
             </div>
         </div>
     </article>
-    {% for flash_message in app.session.flashBag.get('notice') %}
-        <div class="block-messages">
-            {{ flash_message }}
-        </div>
+    {% for type, messages in app.session.flashBag.all %}
+        {% for message in messages %}
+            <div class="block-messages">
+                {{ message }}
+            </div>
+        {% endfor %}
     {% endfor %}
     {{ form(form_create_message) }}
 {% endblock %}

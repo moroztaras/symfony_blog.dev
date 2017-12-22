@@ -2,17 +2,33 @@ services:
     blog.blogs:
         class: BlogBundle\Service\BlogsService
         arguments: [ "@doctrine" ]
+
     blog.comments:
          class: BlogBundle\Service\CommentsService
          arguments: [ "@doctrine" ]
+
     blog.messages:
         class: BlogBundle\Service\MessagesService
         arguments: [ "@doctrine" ]
+
     blog.sessions:
         class: BlogBundle\Service\SessionsService
         arguments: ["@request_stack", "@doctrine"]
+
     blog.flash_listener:
-        class: BlogBundle\Listener\FlashListener
+        class: BlogBundle\Listener\BlogFlashListener
         arguments: ["@session"]
         tags:
             - { name: kernel.event_subscriber }
+
+    comment.flash_listener:
+        class: BlogBundle\Listener\CommentFlashListener
+        arguments: ["@session"]
+        tags:
+             - { name: kernel.event_subscriber }
+
+    message.flash_listener:
+         class: BlogBundle\Listener\MessageFlashListener
+         arguments: ["@session"]
+         tags:
+             - { name: kernel.event_subscriber }

@@ -3,6 +3,8 @@
 namespace BlogBundle\Controller\Admin;
 
 use BlogBundle\Entity\Message;
+use BlogBundle\Event\MessageEvent;
+use BlogBundle\BlogBundleEvents;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -69,7 +71,10 @@ class AdminMessageController extends Controller
         $em->remove($message);
         $em->flush();
 
-        $this->addFlash('notice', 'Повідомлення видалено!');
+        $dispatcher = $this->get('event_dispatcher');
+        $event = new MessageEvent($message);
+        $dispatcher->dispatch(BlogBundleEvents::MESSAGE_DELETE, $event);
+
         return $this->redirectToRoute("admin_messages");
     }
 

@@ -3,6 +3,8 @@
 namespace BlogBundle\Controller\Admin;
 
 use BlogBundle\Entity\Comment;
+use BlogBundle\Event\CommentEvent;
+use BlogBundle\BlogBundleEvents;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,7 +55,10 @@ class AdminCommentController extends Controller
         $em->remove($comment);
         $em->flush();
 
-        $this->addFlash('notice', 'Коментарій видалено!');
+        $dispatcher = $this->get('event_dispatcher');
+        $event = new CommentEvent($comment);
+        $dispatcher->dispatch(BlogBundleEvents::COMMENT_DELETE, $event);
+
         return $this->redirectToRoute("admin_comments");
     }
 }
