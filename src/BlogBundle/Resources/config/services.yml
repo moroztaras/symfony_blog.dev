@@ -32,3 +32,10 @@ services:
          arguments: ["@session"]
          tags:
              - { name: kernel.event_subscriber }
+
+    blog.mailer:
+         class: BlogBundle\Service\Mailer
+         arguments:
+             - '@mailer'
+             - '@twig'
+             - '%mailer_user%'

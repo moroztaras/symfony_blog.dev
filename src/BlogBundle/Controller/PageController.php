@@ -17,6 +17,7 @@ class PageController extends Controller
      */
     public function aboutUsAction(Request $request)
     {
+        $mailer = $this->get('blog.mailer');
         $message = new Message();
         $forms = $this->createForm(MessageType::class, $message);
 
@@ -26,6 +27,13 @@ class PageController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($message);
             $em->flush();
+
+            $mailer->send(
+                'Надіслано нове повідомлення!',
+                'moroztaras@i.ua',
+                'BlogBundle:Email:message_email.html.twig',
+                []
+            );
 
             $dispatcher = $this->get('event_dispatcher');
             $event = new MessageEvent($message);
