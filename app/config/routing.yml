@@ -33,3 +33,6 @@ sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /sonata_admin
+
+file:
+    resource: '@FileBundle/Resources/config/routing.yml'

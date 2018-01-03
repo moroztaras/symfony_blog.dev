@@ -1,0 +1,3 @@
+file_load:
+    path: file/load
+    defaults: { _controller: FileBundle:File:loadFile }
