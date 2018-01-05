@@ -3,6 +3,7 @@
 namespace FileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FileBundle\Forms\Model\FileUploadModel;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
@@ -28,7 +29,7 @@ class File
     /**
      * @ORM\Column(type="string")
      */
-    private $filename;
+    private $fileName;
 
     /**
      * @ORM\Column(type="string")
@@ -43,7 +44,7 @@ class File
     /**
      * @ORM\Column(type="string")
      */
-    private $fileMine;
+    private $fileMime;
 
     /**
      * @ORM\Column(type="smallint")
@@ -99,27 +100,27 @@ class File
     }
 
     /**
-     * Set filename
+     * Set fileName
      *
-     * @param string $filename
+     * @param string $fileName
      *
      * @return File
      */
-    public function setFilename($filename)
+    public function setFileName($fileName)
     {
-        $this->filename = $filename;
+        $this->fileName = $fileName;
 
         return $this;
     }
 
     /**
-     * Get filename
+     * Get fileName
      *
      * @return string
      */
-    public function getFilename()
+    public function getFileName()
     {
-        return $this->filename;
+        return $this->fileName;
     }
 
     /**
@@ -171,27 +172,27 @@ class File
     }
 
     /**
-     * Set fileMine
+     * Set fileMime
      *
-     * @param string $fileMine
+     * @param string $fileMime
      *
      * @return File
      */
-    public function setFileMine($fileMine)
+    public function setFileMime($fileMime)
     {
-        $this->fileMine = $fileMine;
+        $this->fileMime = $fileMime;
 
         return $this;
     }
 
     /**
-     * Get fileMine
+     * Get fileMime
      *
      * @return string
      */
-    public function getFileMine()
+    public function getFileMime()
     {
-        return $this->fileMine;
+        return $this->fileMime;
     }
 
     /**
@@ -242,7 +243,7 @@ class File
         return $this->created;
     }
     /**
-     * @return mixed
+     * @return FileUploadModel
      */
     public function getFileUpload()
     {
@@ -252,7 +253,7 @@ class File
     /**
      * @param mixed $fileUpload
      */
-    public function setFileUpload(UploadedFile $fileUpload)
+    public function setFileUpload(FileUploadModel $fileUpload)
     {
         $this->fileUpload = $fileUpload;
     }

@@ -2,6 +2,7 @@
 
 namespace BlogBundle\Controller;
 
+use FileBundle\Core\FileManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,6 +15,7 @@ class BlogController extends Controller
      */
     public function indexAction(Request $request)
     {
+        var_dump(FileManager::uploadFolderDir('moroztaras0037'));
         $em = $this->getDoctrine();
         $blogRepository = $em->getRepository('BlogBundle:Blog');
 

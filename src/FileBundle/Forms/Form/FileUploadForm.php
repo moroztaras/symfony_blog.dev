@@ -21,7 +21,7 @@ class FileUploadForm  extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FileBundle\Forms\Model\FileUploadFileModel',
+            'data_class' => 'FileBundle\Forms\Model\FileUploadModel',
         ));
     }
 }

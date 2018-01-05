@@ -15,11 +15,20 @@ class FileUploadModel
 
     private $size;
 
+    public function __construct(array $extension = [], $folder = null)
+    {
+        $this->extension = $extension;
+        $this->folder = $folder;
+    }
+
     public function setFile(UploadedFile $file)
     {
         $this->file = $file;
     }
 
+    /*
+     * return UploadedFile
+     */
     public function getFile()
     {
         return $this->file;

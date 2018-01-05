@@ -3,6 +3,8 @@
 namespace FileBundle\Core;
 
 use CoreBundle\CoreBundle;
+use FileBundle\Entity\File;
+use FileBundle\Forms\Model\FileUploadModel;
 use Symfony\Component\Filesystem\Filesystem;
 
 class FileManager
@@ -14,18 +16,23 @@ class FileManager
         return CoreBundle::parameter("kernel.root_dir")."/../web";
     }
 
-    public static function uploadFolderDir()
+    public static function uploadFolderDir($folder = null )
     {
         $rootDir = static::rootDir();
         $fileDir = $rootDir . "/files";
-        if(!is_dir($fileDir)){
-            self::getFileSystem()->mkdir($fileDir, 755);
+        if(!is_dir($fileDir))
+        {
+            CoreBundle::service('filesystem')->mkdir($fileDir, 755);
+        }
+        if ($folder)
+        {
+            $fileDir = $fileDir.'/'.$folder;
+            CoreBundle::service('filesystem')->mkdir($fileDir, 755);
         }
         return $fileDir;
     }
 
     /*
-     * public://file.txt == files/file.txt
      * param $url
      */
     public static function webDir($url)
@@ -33,15 +40,17 @@ class FileManager
         return str_replace('public://','files',$url);
     }
 
-
-    /*
-     * return Filesystem
-     */
-    public    function getFileSystem()
+    public function prepareUploadFile(FileUploadModel $file_upload_model)
     {
-        if(static::$fileSystem == null){
-            static::$fileSystem = new Filesystem();
-        }
-     return static::$fileSystem;
+        $uploadedFile = $file_upload_model->getFile();
+        $fileName = md5(uniqid()).'.'.$uploadedFile->guessExtension();
+        $file = new File();
+        $file->setFileName($fileName)->setFileSize($uploadedFile->getSize());
+        $webFolder = "public://".$file_upload_model->getFolder()."/".$fileName;
+        $file->setUser(0)->setUrl($webFolder);
+        $file->setFileMime($uploadedFile->getMimeType());
+        $file->setStatus(1)->setFileUpload($file_upload_model);
+
+        return $file;
     }
 }
