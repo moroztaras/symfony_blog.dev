@@ -18,6 +18,9 @@
                 <div class="field field-body-summary">
                     {{ blog.summary|raw }}
                 </div>
+                <div class="field field_tags">
+                    Теги: <span class="highlight">{{ blog.tags }}</span>
+                </div>
                 <nav class="link-menu" role="navigation">
                     <ul>
                         <li class="read-more">
@@ -29,4 +32,8 @@
     {% endfor %}
     </div>
     {{ include("BlogBundle:Include:pagination.html.twig", { "pagination" : pagination }) }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ render(controller('BlogBundle:Page:sidebar' ))}}
 {% endblock %}

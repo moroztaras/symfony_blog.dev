@@ -45,19 +45,31 @@
     {% endblock %}
 
     {% block content %}
-        <div id="main_container">
-            {% block side_title %}
-                <div class="page-title" id="page-title">
-                    <h1>{% block page_title %}{% endblock %}</h1>
-                </div>
-            {% endblock %}
+        <table>
+            <tr>
+                <td class="left_block"></td>
+                <td>
+                    <div id="main_container">
+                        {% block side_title %}
+                            <div class="page-title" id="page-title">
+                                <h1>{% block page_title %}{% endblock %}</h1>
+                            </div>
+                        {% endblock %}
 
-            <main class="{% block main_class %}{% endblock %}">
-                {% block main %}
+                        <main class="{% block main_class %}{% endblock %}">
+                            {% block main %}
 
-                {% endblock %}
-            </main>
-        </div>
+                            {% endblock %}
+                        </main>
+                    </div>
+                </td>
+                <td class="right_block">
+                    <aside class="sidebar">
+                        {% block sidebar %}{% endblock %}
+                    </aside>
+                </td>
+            </tr>
+        </table>
     {% endblock %}
 
     {% block footer %}

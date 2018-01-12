@@ -2,7 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Блог 2017{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="{% block description %}{% endblock %}">
+        <meta name="keywords" content="{% block keywords %}{% endblock %}">
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/symfony_blog_2017.css') }}" />
         {% endblock %}

@@ -46,6 +46,11 @@ class Blog
     protected $comments;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    protected $tags;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $created;
@@ -273,5 +278,29 @@ class Blog
     public function getViews()
     {
         return $this->views;
+    }
+
+    /**
+     * Set tags
+     *
+     * @param string $tags
+     *
+     * @return Blog
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return string
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }
