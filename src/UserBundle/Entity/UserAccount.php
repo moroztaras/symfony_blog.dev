@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Class User
  * @package UserBundle\Entity
  * @ORM\Entity
- * @ORM\Table(name="user_account")
+ * @ORM\Table(name="user_account", options={"collate"="utf8_general_ci"})
  */
 class UserAccount
 {

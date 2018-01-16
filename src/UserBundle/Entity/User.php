@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Class User
  * @package UserBundle\Entity
  * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="user", options={"collate"="utf8_general_ci"})
  */
 class User implements \Serializable ,UserInterface
 {
