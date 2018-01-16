@@ -20,10 +20,10 @@ security:
             http_basic: ~
             provider: main
             form_login:
-                login_path: /login
-                check_path: /login
+                login_path: /u_login
+                check_path: /u_login
             logout:
-                path: /logout
+                path: /u_logout
 
     access_control:
         - { path: ^/user, roles: ROLE_USER }
