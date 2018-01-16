@@ -43,6 +43,8 @@ class UserAccount
      */
     private $tokenRecover;
 
+    private $entities;
+
     /**
      * Get id
      *
@@ -195,5 +197,15 @@ class UserAccount
     public function getUser()
     {
         return $this->user;
+    }
+
+    public function setEntities($entities, $machine_name)
+    {
+        $this->entities[$machine_name] = $entities;
+    }
+
+    public function getEntities($machine_name)
+    {
+        return isset($this->entities[$machine_name]) ? $this->entities[$machine_name] : NULL;
     }
 }
