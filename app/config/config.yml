@@ -3,8 +3,9 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@BlogBundle/Resources/config/services.yml" }
-    - { resource: "@BlogBundle/Resources/config/security.yml" }
-#    - { resource: "@UserBundle/Resources/config/security.yml" }
+#    - { resource: "@BlogBundle/Resources/config/security.yml" }
+    - { resource: "@BlogBundle/Resources/config/config.yml" }
+    - { resource: "@UserBundle/Resources/config/security.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -76,14 +77,6 @@ doctrine_migrations:
     table_name: migration_versions
     name: Application Migrations
     organize_migrations: false
-
-fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: BlogBundle\Entity\User
-    from_email:
-        address: "%mailer_user%"
-        sender_name: "%mailer_name%"
 
 sonata_admin:
     title:  'Блог 2017 Адмін панель'
