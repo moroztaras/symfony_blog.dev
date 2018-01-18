@@ -284,6 +284,7 @@ class User implements \Serializable ,UserInterface
     public function setAccount(\UserBundle\Entity\UserAccount $account = null)
     {
         $this->account = $account;
+        $account->setUser($this);
 
         return $this;
     }

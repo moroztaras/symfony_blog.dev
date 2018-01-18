@@ -31,7 +31,7 @@ class SecurityController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('homepage');
         }
         return $this->render('@User/security/register.html.twig',[
             'register_form' => $registerForm->createView()
