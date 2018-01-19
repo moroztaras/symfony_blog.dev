@@ -12,3 +12,10 @@ register:
 recover:
   path: /u_recover/{token}
   defaults: { _controller: UserBundle:Security:recover, token: null }
+
+user:
+  path: /u_user
+
+user_password_recover:
+  path: /u_user/recover_password
+  defaults: { _controller: UserBundle:User:recoverPassword }
