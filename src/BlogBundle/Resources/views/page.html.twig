@@ -14,19 +14,19 @@
             {% block layout %}
                 <div class="block block-layout">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a href="{{ path('homepage') }}profile">
+                        <a href="{{ path('homepage') }}user/profile">
                             {{ app.user.username }}
                         </a> |
                         {% if is_granted("ROLE_ADMIN") %}
-                            <a href="{{ path('admin') }}">{{ 'admin'|trans({}, 'FOSUserBundle') }}</a> |
-                            <a href="{{ path('sonata_admin') }}">Sonata {{ 'admin'|trans({}, 'FOSUserBundle') }}</a> |
+                            <a href="{{ path('admin') }}">Адмін панель</a> |
+                            <a href="{{ path('sonata_admin') }}">Sonata адмін панель</a> |
                         {% endif %}
-                        <a href="{{ path('fos_user_security_logout') }}">
-                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        <a href="{{ path('homepage') }}u_logout">
+                            Вихід
                         </a>
                     {% else %}
-                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> |
-                        <a href="{{ path('homepage') }}register">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                        <a href="{{ path('homepage') }}u_login">Вхід</a> |
+                        <a href="{{ path('homepage') }}u_register">Реєстрація</a>
                     {% endif %}
                 </div>
             {% endblock %}

@@ -26,4 +26,5 @@ security:
                 path: /u_logout
 
     access_control:
-        - { path: ^/user, roles: ROLE_USER }
+#        - { path: ^/user, roles: ROLE_USER ROLE_ADMIN }
+#        - { path: ^/user/profile, roles: ROLE_ADMIN }
