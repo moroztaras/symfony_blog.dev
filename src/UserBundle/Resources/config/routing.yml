@@ -9,10 +9,6 @@ register:
   path: /u_register
   defaults: { _controller: UserBundle:Security:register }
 
-#recover:
-#  path: /recover/{token}
-#  defaults: { _controller: UserBundle:Security:recover, token: null }
-
 user:
   path: /user
 
@@ -23,10 +19,6 @@ user_profile:
 user_edit:
   path: /user/edit
   defaults: { _controller: UserBundle:User:edit }
-
-#user_password_recover:
-#  path: /user/recover_password
-#  defaults: { _controller: UserBundle:User:recoverPassword }
 
 recover:
   path: /recover/{token}
