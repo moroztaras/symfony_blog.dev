@@ -16,7 +16,7 @@ class UserController extends Controller
         $user = $this->getUser();
         $userAccount = $user->getAccount();
         if(!$userAccount->getTokenRecover())
-            return $this->redirectToRoute('user');
+            return $this->redirectToRoute('user_profile');
         $changePasswordModel = new ChangePasswordModel();
         $formChangePassword = $this->createForm(ChangePasswordForm::class, $changePasswordModel);
         $formChangePassword->handleRequest($request);
@@ -24,11 +24,11 @@ class UserController extends Controller
             $encoder = $this->get('security.password_encoder');
             $password = $encoder->encodePassword($user, $changePasswordModel->password);
             $user->setPassword($password);
-            $userAccount->setTokenRecover(null);
+            $userAccount->setTokenRecover('null');
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            return $this->redirectToRoute('user');
+            return $this->redirectToRoute('user_profile');
         }
         return $this->render('@User/security/recover.html.twig',[
             'recover_form' => $formChangePassword->createView()

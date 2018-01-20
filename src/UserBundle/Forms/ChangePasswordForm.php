@@ -23,7 +23,7 @@ class ChangePasswordForm extends AbstractType
             'second_options' => array('label' => 'Повторити пароль'),
         ));
         $builder->add('submit', SubmitType::class,[
-            'label' => 'Відновити'
+            'label' => 'Змінити паполь'
         ]);
     }
 
