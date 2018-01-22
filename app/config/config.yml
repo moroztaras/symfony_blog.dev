@@ -4,7 +4,8 @@ imports:
     - { resource: services.yml }
     - { resource: "@BlogBundle/Resources/config/services.yml" }
 #    - { resource: "@BlogBundle/Resources/config/security.yml" }
-    - { resource: "@BlogBundle/Resources/config/config.yml" }
+#    - { resource: "@BlogBundle/Resources/config/routing.yml" }
+#    - { resource: "@BlogBundle/Resources/config/config.yml" }
     - { resource: "@UserBundle/Resources/config/security.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
