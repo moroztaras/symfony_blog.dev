@@ -1,6 +1,13 @@
 {% extends 'BlogBundle::page.html.twig' %}
 
 {% block main %}
+    {% for type, messages in app.session.flashBag.all %}
+        {% for message in messages %}
+            <div class="block-messages">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <p>Імя: {{ userAccount.firstName }}</p>
     <p>Прізвище: {{ userAccount.lastName }}</p>
     <p>Логін: {{ userAccount.user.username }}</p>
@@ -9,6 +16,6 @@
     <p>Країна: {{ userAccount.region }}</p>
     <p>Дата реєстрації: {{ userAccount.user.created|date("d-m-Y H:m") }}</p>
     <div class="block block-layout">
-        <p><a href="{{ path('user_edit') }}">Редагувати</a> | <a href="{{ path('user_password_recover') }}">Змінити пароль</a> | <a href="{{ path('homepage') }}u_logout">Вихід</a></p>
+        <p><a href="{{ path('user_edit') }}">Редагувати</a> | <a href="{{ path('user_password_recover') }}">Змінити пароль</a> | <a href="{{ path('homepage') }}logout">Вихід</a></p>
     </div>
 {% endblock %}

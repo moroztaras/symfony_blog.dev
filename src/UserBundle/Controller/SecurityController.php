@@ -9,6 +9,8 @@ use UserBundle\Forms\Models\RecoverUserModel;
 use UserBundle\Forms\RecoverUserForm;
 use UserBundle\Forms\Models\RegisterUserModel;
 use UserBundle\Forms\RegisterUserForm;
+use UserBundle\UserBundleEvents;
+use UserBundle\Event\UserEvent;
 
 class SecurityController extends Controller
 {
@@ -34,6 +36,11 @@ class SecurityController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
+            $dispatcher = $this->get('event_dispatcher');
+            $event = new UserEvent($user);
+            $dispatcher->dispatch(UserBundleEvents::USER_REGISTER, $event);
+
             return $this->redirectToRoute('homepage');
         }
         return $this->render('@User/security/register.html.twig',[

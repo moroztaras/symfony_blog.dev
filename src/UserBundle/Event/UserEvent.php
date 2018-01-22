@@ -1,21 +1,21 @@
 <?php
 
-namespace BlogBundle\Event;
+namespace UserBundle\Event;
 
-use BlogBundle\Entity\Blog;
+use UserBundle\Entity\User;
 use Symfony\Component\EventDispatcher\Event;
 
-class BlogEvent extends Event
+class UserEvent extends Event
 {
-    private $blog;
+    private $user;
 
-    public function __construct(Blog $blog)
+    public function __construct(User $user)
     {
-        $this->blog = $blog;
+        $this->user = $user;
     }
 
-    public function getBlog()
+    public function getUser()
     {
-        return $this->blog;
+        return $this->user;
     }
 }

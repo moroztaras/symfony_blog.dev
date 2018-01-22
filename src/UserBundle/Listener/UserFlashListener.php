@@ -1,14 +1,13 @@
 <?php
 
-namespace BlogBundle\Listener;
+namespace UserBundle\Listener;
 
-use BlogBundle\BlogBundleEvents;
-use BlogBundle\Event\BlogEvent;
+use UserBundle\UserBundleEvents;
+use UserBundle\Event\UserEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
-use UserBundle\UserBundleEvents;
 
-class BlogFlashListener implements EventSubscriberInterface
+class UserFlashListener implements EventSubscriberInterface
 {
     private $session;
 
@@ -21,16 +20,36 @@ class BlogFlashListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            UserBundleEvents::BLOG_CREATED => 'onFlashCreate',
+            UserBundleEvents::USER_REGISTER => 'onFlashRegister',
+            UserBundleEvents::USER_EDIT => 'onFlashEdit',
+            UserBundleEvents::USER_RECOVER_PASSWORD => 'onFlashRecoverPassword',
         ];
     }
 
-    public function onFlashCreate(BlogEvent $event)
+    public function onFlashRegister(UserEvent $event)
     {
-        $blog = $event->getBlog();
+        $user = $event->getUser();
         $this->session->getFlashBag()->add(
             'success',
-            sprintf('Новий пост "%s" успішно добавлено!', $blog->getTitle())
+            sprintf('Новий користувач - %s %s успішно зарестрований!', $user->getAccount()->getLastName(), $user->getAccount()->getFirstName())
+        );
+    }
+
+    public function onFlashEdit(UserEvent $event)
+    {
+        $user = $event->getUser();
+        $this->session->getFlashBag()->add(
+            'success',
+            sprintf('Зміни збережено. Нові дані відображено на сторінці профіля.')
+        );
+    }
+
+    public function onFlashRecoverPassword(UserEvent $event)
+    {
+        $user = $event->getUser();
+        $this->session->getFlashBag()->add(
+            'success',
+            sprintf('Новий пароль успішно змінений!')
         );
     }
 }

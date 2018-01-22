@@ -2,3 +2,9 @@ services:
   user.security.recover:
     class: UserBundle\Extend\Security\RecoverPassword
     arguments: ['@mailer', '@twig', '@doctrine.orm.entity_manager', '@router']
+
+  user.flash_listener:
+    class: UserBundle\Listener\UserFlashListener
+    arguments: ["@session"]
+    tags:
+        - { name: kernel.event_subscriber }

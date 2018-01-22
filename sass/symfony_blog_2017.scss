@@ -296,6 +296,12 @@ form{
     border-width: 0;
     text-align: center;
   }
+  a{
+    color: $title;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
 }
 
 .comments {

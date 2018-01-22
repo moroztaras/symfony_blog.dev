@@ -7,6 +7,8 @@ use UserBundle\Entity\User;
 use UserBundle\Forms\ChangePasswordForm;
 use UserBundle\Forms\Models\ChangePasswordModel;
 use UserBundle\Forms\UserAccountForm;
+use UserBundle\UserBundleEvents;
+use UserBundle\Event\UserEvent;
 
 class UserController extends Controller
 {
@@ -28,6 +30,11 @@ class UserController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
+            $dispatcher = $this->get('event_dispatcher');
+            $event = new UserEvent($user);
+            $dispatcher->dispatch(UserBundleEvents::USER_RECOVER_PASSWORD, $event);
+
             return $this->redirectToRoute('user_profile');
         }
         return $this->render('@User/security/recover.html.twig',[
@@ -59,6 +66,10 @@ class UserController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($userAccount);
             $em->flush();
+
+            $dispatcher = $this->get('event_dispatcher');
+            $event = new UserEvent($user);
+            $dispatcher->dispatch(UserBundleEvents::USER_EDIT, $event);
 
             return $this->redirectToRoute('user_profile');
         }
