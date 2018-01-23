@@ -32,6 +32,7 @@
                     {{ form_row(form.title) }}
                     {{ form_row(form.summary) }}
                     {{ form_row(form.body) }}
+                    {{ form_row(form.tags) }}
                 </div>
                 <div class="box-footer">
                     <a href="{{ path('sonata_admin_blogs') }}" class="btn btn-default">Повернутися до списку</a>
@@ -42,3 +43,11 @@
         </div>
     </div>
 {% endblock sonata_admin_content %}
+
+{% block javascripts %}
+    <script src="/scripts/vendor/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('sonata_blog_summary')
+        CKEDITOR.replace('sonata_blog_body')
+    </script>
+{% endblock %}
