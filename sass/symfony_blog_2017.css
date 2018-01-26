@@ -333,4 +333,9 @@ footer {
 .block-search {
   padding-bottom: 15px; }
 
+.block-search-result {
+  font-size: 14px;
+  color: #777777;
+  text-align: center; }
+
 /*# sourceMappingURL=symfony_blog_2017.css.map */

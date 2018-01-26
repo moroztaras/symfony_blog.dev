@@ -83,6 +83,7 @@ class PageController extends Controller
             'BlogBundle:Blog:search.html.twig',[
             'blogs'=>$blogs,
             'searchForm' => $searchForm->createView(),
+            'count' => count($blogs),
         ]);
     }
 }

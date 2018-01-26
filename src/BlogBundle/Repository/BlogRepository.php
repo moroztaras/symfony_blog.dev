@@ -92,7 +92,7 @@ class BlogRepository extends EntityRepository
 
     public function findByWord($word)
     {
-        $qb=$this->createQueryBuilder('b')->where('b.body LIKE :word');
+        $qb=$this->createQueryBuilder('b')->where('b.title LIKE :word')->orWhere('b.summary LIKE :word')->orWhere('b.body LIKE :word')->orWhere('b.tags LIKE :word');
         $qb->setParameter('word', '%'.$word.'%');
         $qb->setMaxResults(20);
 

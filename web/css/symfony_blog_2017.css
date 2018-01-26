@@ -510,3 +510,10 @@ footer .block-copyright {
 .block-search {
   padding-bottom: 15px;
 }
+
+/* line 392, ../../sass/symfony_blog_2017.scss */
+.block-search-result {
+  font-size: 14px;
+  color: #777777;
+  text-align: center;
+}

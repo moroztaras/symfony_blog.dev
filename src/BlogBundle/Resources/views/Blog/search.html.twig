@@ -16,6 +16,9 @@
         <div class="block-search">
             {{ form(searchForm) }}
         </div>
+        <div class="block-search-result">
+            Кількість результатів: {{ count }}
+        </div>
     {% for blog in blogs %}
         <article class="block block-index">
             <h2 class="article-title">
