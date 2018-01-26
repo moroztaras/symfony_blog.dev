@@ -73,6 +73,13 @@ class PageController extends Controller
         $searchForm = $this->createForm(SearchForm::class);
         $searchForm->handleRequest($request);
         $blogs = null;
+
+        if($request->query->get("search")) {
+            $data = $request->query->get("search");
+            $blogs = $blogRepository->findByWord($data);
+            unset($request);
+        }
+
         if($searchForm->isSubmitted())
         {
             $data = $searchForm->getData();

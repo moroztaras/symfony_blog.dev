@@ -500,18 +500,38 @@ footer .block-copyright {
   padding-left: 5px;
   padding-right: 3px;
 }
+/* line 382, ../../sass/symfony_blog_2017.scss */
+.right_block h3 {
+  line-height: 1.2em;
+  font-size: 17px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  background: #bddad8;
+  padding: 5px;
+  color: #1a665a;
+}
+/* line 383, ../../sass/symfony_blog_2017.scss */
+.right_block form {
+  margin: 0;
+  padding: 0;
+  width: 100px;
+}
+/* line 387, ../../sass/symfony_blog_2017.scss */
+.right_block form button {
+  color: white;
+}
 
-/* line 384, ../../sass/symfony_blog_2017.scss */
+/* line 393, ../../sass/symfony_blog_2017.scss */
 .left_block {
   width: 150px;
 }
 
-/* line 388, ../../sass/symfony_blog_2017.scss */
+/* line 397, ../../sass/symfony_blog_2017.scss */
 .block-search {
   padding-bottom: 15px;
 }
 
-/* line 392, ../../sass/symfony_blog_2017.scss */
+/* line 401, ../../sass/symfony_blog_2017.scss */
 .block-search-result {
   font-size: 14px;
   color: #777777;
