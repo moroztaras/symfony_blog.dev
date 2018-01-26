@@ -6,6 +6,7 @@ use BlogBundle\Entity\Message;
 use BlogBundle\Form\MessageType;
 use BlogBundle\Event\MessageEvent;
 use BlogBundle\BlogBundleEvents;
+use BlogBundle\Form\SearchForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -61,5 +62,27 @@ class PageController extends Controller
             'latestComments'    => $latestComments,
             'tags'              => $tagWeights
         ));
+    }
+
+    /**
+     * @Route("/search", name="search")
+     */
+    public function searchAction(Request $request)
+    {
+        $blogRepository = $this->getDoctrine()->getRepository("BlogBundle:Blog");
+        $searchForm = $this->createForm(SearchForm::class);
+        $searchForm->handleRequest($request);
+        $blogs = null;
+        if($searchForm->isSubmitted())
+        {
+            $data = $searchForm->getData();
+            $blogs = $blogRepository->findByWord($data["search"]);
+        }
+
+        return $this->render(
+            'BlogBundle:Blog:search.html.twig',[
+            'blogs'=>$blogs,
+            'searchForm' => $searchForm->createView(),
+        ]);
     }
 }

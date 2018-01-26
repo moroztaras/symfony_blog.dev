@@ -76,6 +76,9 @@ p {
   #main_container article .field_created {
     font-size: 14px;
     color: #777777; }
+  #main_container article .field_tags {
+    font-size: 14px;
+    color: #777777; }
   #main_container article.block-index {
     border-bottom: 2px solid #d5dedd;
     padding-bottom: 20px;
@@ -84,6 +87,8 @@ p {
       text-align: center; }
     #main_container article.block-index .field_created {
       text-align: center; }
+    #main_container article.block-index .field_tags {
+      text-align: left; }
     #main_container article.block-index:last-child {
       border-bottom-width: 0;
       padding-bottom: 0;
@@ -206,6 +211,11 @@ form {
     padding: 5px 20px;
     border-width: 0;
     text-align: center; }
+  form a {
+    color: #1a665a;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-decoration: none; }
 
 .comments {
   clear: both; }
@@ -254,5 +264,73 @@ footer {
   padding: 10px  0; }
   footer .block-copyright {
     color: #767979; }
+
+.sidebar .section {
+  margin-bottom: 20px; }
+
+.sidebar h3 {
+  line-height: 1.2em;
+  font-size: 17px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  background: #bddad8;
+  padding: 5px;
+  color: #1a665a; }
+
+.sidebar p {
+  line-height: 1.5em;
+  margin-bottom: 20px; }
+
+.sidebar ul {
+  list-style: none; }
+
+.sidebar ul li {
+  line-height: 1.5em; }
+
+.sidebar .small {
+  font-size: 12px; }
+
+.sidebar .small a {
+  text-decoration: none; }
+
+.sidebar .comment p {
+  margin-bottom: 5px; }
+
+.sidebar .comment {
+  margin-bottom: 10px;
+  padding-bottom: 10px; }
+
+.sidebar .tags {
+  font-weight: bold; }
+
+.sidebar .tags span {
+  color: #000;
+  font-size: 12px; }
+
+.sidebar .tags .weight-1 {
+  font-size: 12px; }
+
+.sidebar .tags .weight-2 {
+  font-size: 15px; }
+
+.sidebar .tags .weight-3 {
+  font-size: 18px; }
+
+.sidebar .tags .weight-4 {
+  font-size: 21px; }
+
+.sidebar .tags .weight-5 {
+  font-size: 24px; }
+
+.right_block {
+  vertical-align: top;
+  padding-left: 5px;
+  padding-right: 3px; }
+
+.left_block {
+  width: 150px; }
+
+.block-search {
+  padding-bottom: 15px; }
 
 /*# sourceMappingURL=symfony_blog_2017.css.map */

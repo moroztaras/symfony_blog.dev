@@ -505,3 +505,8 @@ footer .block-copyright {
 .left_block {
   width: 150px;
 }
+
+/* line 388, ../../sass/symfony_blog_2017.scss */
+.block-search {
+  padding-bottom: 15px;
+}

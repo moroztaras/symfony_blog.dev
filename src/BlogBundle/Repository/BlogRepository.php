@@ -89,4 +89,14 @@ class BlogRepository extends EntityRepository
         }
         return $tagWeights;
     }
+
+    public function findByWord($word)
+    {
+        $qb=$this->createQueryBuilder('b')->where('b.body LIKE :word');
+        $qb->setParameter('word', '%'.$word.'%');
+        $qb->setMaxResults(20);
+
+        return $qb->getQuery()
+            ->getResult();
+    }
 }
