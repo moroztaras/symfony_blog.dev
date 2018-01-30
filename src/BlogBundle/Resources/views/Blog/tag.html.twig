@@ -1,0 +1,40 @@
+{% extends 'BlogBundle::page.html.twig' %}
+
+{% block title %}Теги | Блог 2017 {% endblock %}
+
+{% block site_title %}Теги{% endblock %}
+
+{% block main %}
+    <div class="blog-index-view">
+    {% for blog in blogs %}
+        <article class="block block-index">
+            <h2 class="article-title">
+                <a href="{{ path('blog_view', {'id':blog.id, 'slug': blog.slug}) }}">{{ blog.title }}</a>
+            </h2>
+            <div class="container blog-container">
+                <div class="field field_created">
+                    {{ blog.created|date("d-m-Y H:m") }} | Переглядів: {{ blog.views }}
+                </div>
+                <div class="field field-body-summary">
+                    {{ blog.summary|raw }}
+                </div>
+                <div class="field field_tags">
+                    Теги: <span class="highlight">{{ blog.tags }}</span>
+                </div>
+                <nav class="link-menu" role="navigation">
+                    <ul>
+                        <li class="read-more">
+                            <a href="{{ path('blog_view', {'id':blog.id, 'slug': blog.slug}) }}">Подробиці</a>
+                        </li>
+                    </ul>
+                </nav>
+        </article>
+    {% else %}
+        <p>Пости по даному тегу відсутні!</p>
+    {% endfor %}
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ render(controller('BlogBundle:Page:sidebar' ))}}
+{% endblock %}

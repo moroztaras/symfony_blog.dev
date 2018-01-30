@@ -99,4 +99,14 @@ class BlogRepository extends EntityRepository
         return $qb->getQuery()
             ->getResult();
     }
+
+    public function findByTag($tag)
+    {
+        $qb=$this->createQueryBuilder('b')->where('b.tags LIKE :tag');
+        $qb->setParameter('tag', '%'.$tag.'%');
+        $qb->setMaxResults(20);
+
+        return $qb->getQuery()
+            ->getResult();
+    }
 }

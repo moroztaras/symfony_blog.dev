@@ -93,4 +93,19 @@ class PageController extends Controller
             'count' => count($blogs),
         ]);
     }
+
+    /**
+     * @Route("/tag/{tag}", name="tag")
+     */
+    public function tagAction($tag)
+    {
+        $blogRepository = $this->getDoctrine()->getRepository("BlogBundle:Blog");
+        $blogs = null;
+        $blogs = $blogRepository->findByTag($tag);
+
+        return $this->render(
+            'BlogBundle:Blog:tag.html.twig',[
+            'blogs'=>$blogs,
+        ]);
+    }
 }
