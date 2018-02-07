@@ -8,3 +8,7 @@ services:
     arguments: ["@session"]
     tags:
         - { name: kernel.event_subscriber }
+
+  user.user_provider:
+    class: UserBundle\Security\User\UserProvider
+    arguments: ['@doctrine.orm.entity_manager']

@@ -7,8 +7,9 @@ security:
 
     providers:
         main:
-            entity:
-                class: UserBundle\Entity\User
+            id: user.user_provider
+#            entity:
+#                class: UserBundle\Entity\User
 
     firewalls:
         dev:
