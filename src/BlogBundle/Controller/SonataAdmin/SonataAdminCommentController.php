@@ -49,13 +49,6 @@ class SonataAdminCommentController extends Controller
                 'filterActive' => $sessionService->getFilterStatus(),
             ]
         );
-#        $em = $this->getDoctrine()->getManager();
-#        $comments = $em->getRepository("BlogBundle:Comment")->findAll();
-
-#        return $this->render(
-#            'BlogBundle:SonataAdmin:comment\sonata_comments.html.twig', array(
-#            'comments'      => $comments
-#        ));
     }
 
     /**
