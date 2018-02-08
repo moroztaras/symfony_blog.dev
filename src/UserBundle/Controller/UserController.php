@@ -53,6 +53,17 @@ class UserController extends Controller
         ]);
     }
 
+    public function userProfileAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("UserBundle:User")->find($id);
+        $userAccount = $user->getAccount();
+
+        return $this->render('@User/security/user_profile.html.twig',[
+            'userAccount' => $userAccount
+        ]);
+    }
+
     public function editAction(Request $request)
     {
         /** @var User $user */

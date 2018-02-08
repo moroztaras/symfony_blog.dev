@@ -1,0 +1,18 @@
+{% extends 'BlogBundle::page.html.twig' %}
+
+{% block main %}
+    {% for type, messages in app.session.flashBag.all %}
+        {% for message in messages %}
+            <div class="block-messages">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <p>Імя: {{ userAccount.firstName }}</p>
+    <p>Прізвище: {{ userAccount.lastName }}</p>
+    <p>Логін: {{ userAccount.user.username }}</p>
+    <p>Email: {{ userAccount.user.email }}</p>
+    <p>Дата нородження: {{ userAccount.birthday|date("d-m-Y") }}</p>
+    <p>Країна: {{ userAccount.region }}</p>
+    <p>Дата реєстрації: {{ userAccount.user.created|date("d-m-Y H:m") }}</p>
+{% endblock %}

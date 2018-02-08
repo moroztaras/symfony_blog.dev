@@ -116,7 +116,7 @@ p {
     display: inline-block; }
   .main-view-admin .blog-view-admin .field-row .table-blog {
     width: 100%; }
-    .main-view-admin .blog-view-admin .field-row .table-blog #id, .main-view-admin .blog-view-admin .field-row .table-blog #title, .main-view-admin .blog-view-admin .field-row .table-blog #actions, .main-view-admin .blog-view-admin .field-row .table-blog #send, .main-view-admin .blog-view-admin .field-row .table-blog #created {
+    .main-view-admin .blog-view-admin .field-row .table-blog #id, .main-view-admin .blog-view-admin .field-row .table-blog #title, .main-view-admin .blog-view-admin .field-row .table-blog #actions, .main-view-admin .blog-view-admin .field-row .table-blog #send, .main-view-admin .blog-view-admin .field-row .table-blog #created, .main-view-admin .blog-view-admin .field-row .table-blog #user_login, .main-view-admin .blog-view-admin .field-row .table-blog #user_name {
       background-color: #bddad8;
       text-align: center;
       font-weight: bold;
