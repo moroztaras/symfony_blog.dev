@@ -1,0 +1,80 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block title %}Блог 2017 | Користувачі{% endblock %}
+
+{% block sonata_page_content_header %}
+    <h1>Користувачі</h1>
+{% endblock %}
+
+{% block sonata_admin_content %}
+    <div class="sonata-ba-content">
+        <div class="row">
+            <div class="col-md-12">
+                {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="panel panel-default">
+                        <div class="panel-body bg-success">
+                            {{ flash_message }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="box box-info">
+                    <div class="box-header">
+                        <a href="{{ path('register') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
+                            Зареєструвати користувача
+                        </a>
+                        <a href="#filter" class="btn btn-default" data-toggle="collapse" aria-expanded="{% if filterActive %}true{% else %}false{% endif %}" aria-controls="filter"><i class="fa fa-filter"></i>
+                            Фільтр
+                        </a>
+                        <div class="collapse{% if filterActive %} in{% endif %}" id="filter">
+                            {{ form_start(form) }}
+                            <div class="box-body">
+                                <div class="form-group col-md-4">
+                                    {{ form_row(form.username) }}
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <button type="submit" role="button" class="btn btn-primary">Показать</button>
+                                <a href="{{ path(app.request.get('_route'), { 'reset': true }) }}" role="button" class="btn btn-default">Скинути</a>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+            {% if pagination %}
+                    <div class="box box-info">
+                        <div class="box-body">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Id', 'u.id') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Дата', 'u.created') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Логін', 'u.username') }}</th>
+                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Ім\'я і прізвище', 'u.username') }}</th>
+                                    <th></th>
+                                </tr>
+                                {% for user in pagination %}
+                                    <tr>
+                                        <td class="text-center">{{ user.id }}</td>
+                                        <td class="text-center">{{ user.created|date("d-m-Y H:m") }}</td>
+                                        <td>{{ user.username }}</td>
+                                        <td>{{ userAccount.lastName  }} {{ userAccount.firstName  }}</td>
+                                        <td class="actions">
+                                            <a href="#" class="btn btn-primary a-btn-slide-text">
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+
+                                            </a>
+                                            <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span>
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                            <div class="navigation text-center">
+                                {{ knp_pagination_render(pagination) }}
+                            </div>
+                        </div>
+                    </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock sonata_admin_content %}

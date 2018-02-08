@@ -11,6 +11,10 @@ services:
         class: BlogBundle\Service\MessagesService
         arguments: [ "@doctrine" ]
 
+    blog.users:
+        class: BlogBundle\Service\UsersService
+        arguments: [ "@doctrine" ]
+
     blog.sessions:
         class: BlogBundle\Service\SessionsService
         arguments: ["@request_stack", "@doctrine"]
