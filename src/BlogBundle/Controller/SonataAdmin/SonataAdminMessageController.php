@@ -49,13 +49,6 @@ class SonataAdminMessageController extends Controller
                 'filterActive' => $sessionService->getFilterStatus(),
             ]
         );
-#        $em = $this->getDoctrine()->getManager();
-#        $messages = $em->getRepository("BlogBundle:Message")->findAll();
-
-#        return $this->render(
-#            'BlogBundle:SonataAdmin:message\sonata_messages.html.twig', array(
-#            'messages'      => $messages
-#        ));
     }
 
     /**
