@@ -336,7 +336,10 @@ form{
   }
 }
 .highlight{
-  color: orange;
+  a{
+    color: orange;
+    text-decoration: none;
+  }
 }
 time{
   font-size: 14px;

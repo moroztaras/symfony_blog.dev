@@ -246,8 +246,9 @@ form {
 .previous-comments h3 {
   color: #1a665a; }
 
-.highlight {
-  color: orange; }
+.highlight a {
+  color: orange;
+  text-decoration: none; }
 
 time {
   font-size: 14px;

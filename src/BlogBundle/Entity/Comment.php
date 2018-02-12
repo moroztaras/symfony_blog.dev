@@ -28,7 +28,8 @@ class Comment
      */
     protected $id;
     /**
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="\UserBundle\Entity\User", inversedBy="comments")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     protected $user;
     /**

@@ -6,14 +6,18 @@ use BlogBundle\Entity\Comment;
 use BlogBundle\Form\CommentType;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use UserBundle\Entity\User;
 
 class CommentController extends Controller
 {
     public function newAction($blog_id)
     {
+        /** @var User $user */
+        $user = $this->getUser();
         $blog = $this->getBlog($blog_id);
         $comment = new Comment();
         $comment->setBlog($blog);
+        $comment->setUser($user);
         $form   = $this->createForm(CommentType::class, $comment);
         return $this->render('BlogBundle:Comment:form.html.twig', array(
             'comment' => $comment,
@@ -26,9 +30,12 @@ class CommentController extends Controller
      */
     public function createAction(Request $request, $blog_id)
     {
+        /** @var User $user */
+        $user = $this->getUser();
         $blog = $this->getBlog($blog_id);
         $comment  = new Comment();
         $comment->setBlog($blog);
+        $comment->setUser($user);
         $form    = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
         if ($form->isValid()) {

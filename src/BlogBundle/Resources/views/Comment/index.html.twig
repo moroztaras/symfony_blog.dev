@@ -1,7 +1,12 @@
 {% for comment in comments %}
     <article class="comment {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ comment.id }}">
         <header>
-            <p><time>Ім'я: </time><span class="highlight">{{ comment.user }}</span><time datetime="{{ comment.created|date("d-m-Y H:m") }}"> прокоментовано: {{ comment.created|date("d-m-Y H:m") }}</time></p>
+            <p>
+                <time>Ім'я: </time>
+                <span class="highlight">
+                    <a href="{{ path('user_profile_view', {id : comment.user.id}) }} ">{{ comment.user.account.lastName }} {{ comment.user.account.firstName }}</a>
+                </span>
+                <time datetime="{{ comment.created|date("d-m-Y H:m") }}"> прокоментовано: {{ comment.created|date("d-m-Y H:m") }}</time></p>
         </header>
         <p>{{ comment.comment }}</p>
     </article>

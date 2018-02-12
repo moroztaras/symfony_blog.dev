@@ -24,7 +24,7 @@
     {% for comment in latestComments %}
         <article class="comment">
             <header>
-                <p class="small"><span class="highlight">{{ comment.user }}</span> прокоментував
+                <p class="small"><span class="highlight"><a href="{{ path('user_profile_view', {id : comment.user.id}) }} ">{{ comment.user.account.lastName }} {{ comment.user.account.firstName }}</a></span> прокоментував
                     <a href="{{ path('blog_view', {id : comment.blog.id, slug : comment.blog.slug}) }}#comment-{{ comment.id }}">
                         {{ comment.blog.title }}
                     </a>

@@ -62,6 +62,10 @@ class User implements \Serializable ,UserInterface
      * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Blog", mappedBy="user")
      */
     protected $blogs;
+    /**
+     * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Comment", mappedBy="user")
+     */
+    protected $comments;
 
     public function __construct()
     {
