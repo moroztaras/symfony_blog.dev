@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use UserBundle\Entity\User;
 
 class AdminBlogController extends Controller
 {
@@ -54,6 +55,11 @@ class AdminBlogController extends Controller
     public function createAction(Request $request)
     {
         $blog = new Blog();
+
+        /** @var User $user */
+        $user = $this->getUser();
+        $blog->setUser($user);
+
         $forms = $this->createForm(BlogType::class, $blog);
 
         $forms->handleRequest($request);

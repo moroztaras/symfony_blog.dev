@@ -118,46 +118,51 @@ p {
   font-size: 14px;
   color: #777777;
 }
-/* line 111, ../../sass/symfony_blog_2017.scss */
+/* line 110, ../../sass/symfony_blog_2017.scss */
+#main_container article .field_created a {
+  color: orange;
+  text-decoration: none;
+}
+/* line 115, ../../sass/symfony_blog_2017.scss */
 #main_container article .field_tags {
   font-size: 14px;
   color: #777777;
 }
-/* line 116, ../../sass/symfony_blog_2017.scss */
+/* line 120, ../../sass/symfony_blog_2017.scss */
 #main_container article.block-index {
   border-bottom: 2px solid #d5dedd;
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
-/* line 118, ../../sass/symfony_blog_2017.scss */
+/* line 122, ../../sass/symfony_blog_2017.scss */
 #main_container article.block-index .article-title {
   text-align: center;
 }
-/* line 122, ../../sass/symfony_blog_2017.scss */
+/* line 126, ../../sass/symfony_blog_2017.scss */
 #main_container article.block-index .field_created {
   text-align: center;
 }
-/* line 125, ../../sass/symfony_blog_2017.scss */
+/* line 129, ../../sass/symfony_blog_2017.scss */
 #main_container article.block-index .field_tags {
   text-align: left;
 }
-/* line 131, ../../sass/symfony_blog_2017.scss */
+/* line 135, ../../sass/symfony_blog_2017.scss */
 #main_container article.block-index:last-child {
   border-bottom-width: 0;
   padding-bottom: 0;
   margin-bottom: 0;
 }
-/* line 138, ../../sass/symfony_blog_2017.scss */
+/* line 142, ../../sass/symfony_blog_2017.scss */
 #main_container article .link-menu ul {
   margin: 0;
   padding: 0;
   text-align: right;
 }
-/* line 142, ../../sass/symfony_blog_2017.scss */
+/* line 146, ../../sass/symfony_blog_2017.scss */
 #main_container article .link-menu ul li {
   list-style-type: none;
 }
-/* line 144, ../../sass/symfony_blog_2017.scss */
+/* line 148, ../../sass/symfony_blog_2017.scss */
 #main_container article .link-menu ul li a {
   color: orange;
   font-size: 12px;
@@ -165,83 +170,83 @@ p {
   text-decoration: none;
 }
 
-/* line 157, ../../sass/symfony_blog_2017.scss */
+/* line 161, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .menu-item li {
   list-style-type: none;
 }
-/* line 159, ../../sass/symfony_blog_2017.scss */
+/* line 163, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .menu-item li a {
   color: orange;
   text-decoration: none;
 }
-/* line 166, ../../sass/symfony_blog_2017.scss */
+/* line 170, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row {
   margin-bottom: 20px;
 }
-/* line 168, ../../sass/symfony_blog_2017.scss */
+/* line 172, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .field {
   display: inline-block;
 }
-/* line 171, ../../sass/symfony_blog_2017.scss */
+/* line 175, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog {
   width: 100%;
 }
-/* line 173, ../../sass/symfony_blog_2017.scss */
+/* line 177, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog #id, .main-view-admin .blog-view-admin .field-row .table-blog #title, .main-view-admin .blog-view-admin .field-row .table-blog #actions, .main-view-admin .blog-view-admin .field-row .table-blog #send, .main-view-admin .blog-view-admin .field-row .table-blog #created, .main-view-admin .blog-view-admin .field-row .table-blog #user_login, .main-view-admin .blog-view-admin .field-row .table-blog #user_name {
   background-color: #bddad8;
   text-align: center;
   font-weight: bold;
   color: #1a665a;
 }
-/* line 179, ../../sass/symfony_blog_2017.scss */
+/* line 183, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog #id {
   width: 5%;
 }
-/* line 182, ../../sass/symfony_blog_2017.scss */
+/* line 186, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog #title {
   width: 70%;
 }
-/* line 185, ../../sass/symfony_blog_2017.scss */
+/* line 189, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog #send {
   width: 75%;
 }
-/* line 188, ../../sass/symfony_blog_2017.scss */
+/* line 192, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog #created {
   width: 10%;
 }
-/* line 191, ../../sass/symfony_blog_2017.scss */
+/* line 195, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog #actions {
   width: 25%;
 }
-/* line 194, ../../sass/symfony_blog_2017.scss */
+/* line 198, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog .id {
   color: #1a665a;
   font-size: 18px;
   text-align: center;
 }
-/* line 199, ../../sass/symfony_blog_2017.scss */
+/* line 203, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog .title {
   color: #1a665a;
   font-size: 18px;
   padding: 5px 10px;
 }
-/* line 204, ../../sass/symfony_blog_2017.scss */
+/* line 208, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog .created {
   color: #1a665a;
   font-size: 10px;
 }
-/* line 209, ../../sass/symfony_blog_2017.scss */
+/* line 213, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog .send a {
   color: #1a665a;
   font-size: 18px;
   padding: 5px 10px;
   text-decoration: none;
 }
-/* line 216, ../../sass/symfony_blog_2017.scss */
+/* line 220, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog .actions {
   display: inline-block;
 }
-/* line 218, ../../sass/symfony_blog_2017.scss */
+/* line 222, ../../sass/symfony_blog_2017.scss */
 .main-view-admin .blog-view-admin .field-row .table-blog .actions a {
   color: orange;
   font-size: 18px;
@@ -249,13 +254,13 @@ p {
   padding: 5px 10px;
 }
 
-/* line 230, ../../sass/symfony_blog_2017.scss */
+/* line 234, ../../sass/symfony_blog_2017.scss */
 .pagination {
   margin: 0;
   padding: 0;
   text-align: center;
 }
-/* line 235, ../../sass/symfony_blog_2017.scss */
+/* line 239, ../../sass/symfony_blog_2017.scss */
 .pagination ul li {
   margin: 0 5px;
   padding: 0;
@@ -263,37 +268,37 @@ p {
   display: inline-block;
   color: orange;
 }
-/* line 241, ../../sass/symfony_blog_2017.scss */
+/* line 245, ../../sass/symfony_blog_2017.scss */
 .pagination ul li a {
   color: orange;
   text-decoration: none;
 }
-/* line 245, ../../sass/symfony_blog_2017.scss */
+/* line 249, ../../sass/symfony_blog_2017.scss */
 .pagination ul li.current {
   font-weight: bold;
 }
 
-/* line 252, ../../sass/symfony_blog_2017.scss */
+/* line 256, ../../sass/symfony_blog_2017.scss */
 form {
   background-color: #d5dedd;
   width: 600px;
   margin: 0 auto;
   padding: 30px;
 }
-/* line 257, ../../sass/symfony_blog_2017.scss */
+/* line 261, ../../sass/symfony_blog_2017.scss */
 form label {
   display: block;
   font-size: 17px;
   color: #1a665a;
   margin-bottom: 5px;
 }
-/* line 264, ../../sass/symfony_blog_2017.scss */
+/* line 268, ../../sass/symfony_blog_2017.scss */
 form input[type="text"], form input[type="password"], form input[type="email"] {
   width: 100%;
   border: 1px solid #b9bdbd;
   padding: 2px 5px;
 }
-/* line 269, ../../sass/symfony_blog_2017.scss */
+/* line 273, ../../sass/symfony_blog_2017.scss */
 form input[type="submit"] {
   cursor: pointer;
   margin-top: 10px;
@@ -305,7 +310,7 @@ form input[type="submit"] {
   border-width: 0;
   text-align: center;
 }
-/* line 281, ../../sass/symfony_blog_2017.scss */
+/* line 285, ../../sass/symfony_blog_2017.scss */
 form textarea {
   width: 100%;
   border: 1px solid #b9bdbd;
@@ -313,7 +318,7 @@ form textarea {
   resize: none;
   min-height: 200px;
 }
-/* line 288, ../../sass/symfony_blog_2017.scss */
+/* line 292, ../../sass/symfony_blog_2017.scss */
 form button {
   cursor: pointer;
   margin-top: 10px;
@@ -325,7 +330,7 @@ form button {
   border-width: 0;
   text-align: center;
 }
-/* line 299, ../../sass/symfony_blog_2017.scss */
+/* line 303, ../../sass/symfony_blog_2017.scss */
 form a {
   color: #1a665a;
   font-size: 14px;
@@ -333,27 +338,27 @@ form a {
   text-decoration: none;
 }
 
-/* line 307, ../../sass/symfony_blog_2017.scss */
+/* line 311, ../../sass/symfony_blog_2017.scss */
 .comments {
   clear: both;
 }
 
-/* line 310, ../../sass/symfony_blog_2017.scss */
+/* line 314, ../../sass/symfony_blog_2017.scss */
 .comments .odd {
   background: #d5dedd;
 }
 
-/* line 313, ../../sass/symfony_blog_2017.scss */
+/* line 317, ../../sass/symfony_blog_2017.scss */
 .comments .comment {
   padding: 20px;
 }
 
-/* line 315, ../../sass/symfony_blog_2017.scss */
+/* line 319, ../../sass/symfony_blog_2017.scss */
 .comments .comment p {
   margin-bottom: 0;
 }
 
-/* line 318, ../../sass/symfony_blog_2017.scss */
+/* line 322, ../../sass/symfony_blog_2017.scss */
 .comments h3 {
   color: #1a665a;
   background: #bddad8;
@@ -363,28 +368,28 @@ form a {
   clear: both;
 }
 
-/* line 326, ../../sass/symfony_blog_2017.scss */
+/* line 330, ../../sass/symfony_blog_2017.scss */
 .comments .previous-comments {
   margin-bottom: 20px;
 }
 
-/* line 330, ../../sass/symfony_blog_2017.scss */
+/* line 334, ../../sass/symfony_blog_2017.scss */
 .previous-comments h3 {
   color: #1a665a;
 }
 
-/* line 334, ../../sass/symfony_blog_2017.scss */
+/* line 338, ../../sass/symfony_blog_2017.scss */
 .highlight {
   color: orange;
 }
 
-/* line 337, ../../sass/symfony_blog_2017.scss */
+/* line 341, ../../sass/symfony_blog_2017.scss */
 time {
   font-size: 14px;
   color: #777777;
 }
 
-/* line 342, ../../sass/symfony_blog_2017.scss */
+/* line 346, ../../sass/symfony_blog_2017.scss */
 .block-messages {
   text-align: center;
   color: #3c763d;
@@ -394,23 +399,23 @@ time {
   margin: 10px 0 10px 0;
 }
 
-/* line 351, ../../sass/symfony_blog_2017.scss */
+/* line 355, ../../sass/symfony_blog_2017.scss */
 footer {
   background-color: #d5dedd;
   text-align: center;
   padding: 10px  0;
 }
-/* line 355, ../../sass/symfony_blog_2017.scss */
+/* line 359, ../../sass/symfony_blog_2017.scss */
 footer .block-copyright {
   color: #767979;
 }
 
-/* line 360, ../../sass/symfony_blog_2017.scss */
+/* line 364, ../../sass/symfony_blog_2017.scss */
 .sidebar .section {
   margin-bottom: 20px;
 }
 
-/* line 361, ../../sass/symfony_blog_2017.scss */
+/* line 365, ../../sass/symfony_blog_2017.scss */
 .sidebar h3 {
   line-height: 1.2em;
   font-size: 17px;
@@ -421,111 +426,111 @@ footer .block-copyright {
   color: #1a665a;
 }
 
-/* line 362, ../../sass/symfony_blog_2017.scss */
+/* line 366, ../../sass/symfony_blog_2017.scss */
 .sidebar p {
   line-height: 1.5em;
   margin-bottom: 20px;
 }
 
-/* line 363, ../../sass/symfony_blog_2017.scss */
+/* line 367, ../../sass/symfony_blog_2017.scss */
 .sidebar ul {
   list-style: none;
 }
 
-/* line 364, ../../sass/symfony_blog_2017.scss */
+/* line 368, ../../sass/symfony_blog_2017.scss */
 .sidebar ul li {
   line-height: 1.5em;
 }
 
-/* line 365, ../../sass/symfony_blog_2017.scss */
+/* line 369, ../../sass/symfony_blog_2017.scss */
 .sidebar .small {
   font-size: 12px;
 }
 
-/* line 366, ../../sass/symfony_blog_2017.scss */
+/* line 370, ../../sass/symfony_blog_2017.scss */
 .sidebar .small a {
   text-decoration: none;
 }
 
-/* line 367, ../../sass/symfony_blog_2017.scss */
+/* line 371, ../../sass/symfony_blog_2017.scss */
 .sidebar .comment p {
   margin-bottom: 5px;
 }
 
-/* line 368, ../../sass/symfony_blog_2017.scss */
+/* line 372, ../../sass/symfony_blog_2017.scss */
 .sidebar .comment {
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
 
-/* line 369, ../../sass/symfony_blog_2017.scss */
+/* line 373, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags {
   font-weight: bold;
 }
 
-/* line 370, ../../sass/symfony_blog_2017.scss */
+/* line 374, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags span {
   color: #000;
   font-size: 12px;
 }
 
-/* line 371, ../../sass/symfony_blog_2017.scss */
+/* line 375, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-1 {
   font-size: 12px;
 }
-/* line 371, ../../sass/symfony_blog_2017.scss */
+/* line 375, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-1 a {
   text-decoration: none;
   color: #000;
 }
 
-/* line 372, ../../sass/symfony_blog_2017.scss */
+/* line 376, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-2 {
   font-size: 15px;
 }
-/* line 372, ../../sass/symfony_blog_2017.scss */
+/* line 376, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-2 a {
   text-decoration: none;
   color: #000;
 }
 
-/* line 373, ../../sass/symfony_blog_2017.scss */
+/* line 377, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-3 {
   font-size: 18px;
 }
-/* line 373, ../../sass/symfony_blog_2017.scss */
+/* line 377, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-3 a {
   text-decoration: none;
   color: #000;
 }
 
-/* line 374, ../../sass/symfony_blog_2017.scss */
+/* line 378, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-4 {
   font-size: 21px;
 }
-/* line 374, ../../sass/symfony_blog_2017.scss */
+/* line 378, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-4 a {
   text-decoration: none;
   color: #000;
 }
 
-/* line 375, ../../sass/symfony_blog_2017.scss */
+/* line 379, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-5 {
   font-size: 24px;
 }
-/* line 375, ../../sass/symfony_blog_2017.scss */
+/* line 379, ../../sass/symfony_blog_2017.scss */
 .sidebar .tags .weight-5 a {
   text-decoration: none;
   color: #000;
 }
 
-/* line 378, ../../sass/symfony_blog_2017.scss */
+/* line 382, ../../sass/symfony_blog_2017.scss */
 .right_block {
   vertical-align: top;
   padding-left: 5px;
   padding-right: 3px;
 }
-/* line 382, ../../sass/symfony_blog_2017.scss */
+/* line 386, ../../sass/symfony_blog_2017.scss */
 .right_block h3 {
   line-height: 1.2em;
   font-size: 17px;
@@ -535,28 +540,28 @@ footer .block-copyright {
   padding: 5px;
   color: #1a665a;
 }
-/* line 383, ../../sass/symfony_blog_2017.scss */
+/* line 387, ../../sass/symfony_blog_2017.scss */
 .right_block form {
   margin: 0;
   padding: 0;
   width: 100px;
 }
-/* line 387, ../../sass/symfony_blog_2017.scss */
+/* line 391, ../../sass/symfony_blog_2017.scss */
 .right_block form button {
   color: white;
 }
 
-/* line 393, ../../sass/symfony_blog_2017.scss */
+/* line 397, ../../sass/symfony_blog_2017.scss */
 .left_block {
   width: 150px;
 }
 
-/* line 397, ../../sass/symfony_blog_2017.scss */
+/* line 401, ../../sass/symfony_blog_2017.scss */
 .block-search {
   padding-bottom: 15px;
 }
 
-/* line 401, ../../sass/symfony_blog_2017.scss */
+/* line 405, ../../sass/symfony_blog_2017.scss */
 .block-search-result {
   font-size: 14px;
   color: #777777;

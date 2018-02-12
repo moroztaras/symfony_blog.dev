@@ -1,5 +1,7 @@
 <?php
+
 namespace UserBundle\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
@@ -56,6 +58,11 @@ class User implements \Serializable ,UserInterface
      */
     private $account;
 
+    /**
+     * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Blog", mappedBy="user")
+     */
+    protected $blogs;
+
     public function __construct()
     {
         $this->roles = new ArrayCollection();
@@ -64,6 +71,7 @@ class User implements \Serializable ,UserInterface
         $this->created = new \DateTime();
         $this->updated = new \DateTime();
         $this->status = 1;
+        $this->blogs = new ArrayCollection();
     }
 
     public function serialize()
@@ -309,5 +317,39 @@ class User implements \Serializable ,UserInterface
         }
 
         return $fullname;
+    }
+
+    /**
+     * Add blog
+     *
+     * @param \BlogBundle\Entity\Blog $blog
+     *
+     * @return User
+     */
+    public function addBlog(\BlogBundle\Entity\Blog $blog)
+    {
+        $this->blogs[] = $blog;
+
+        return $this;
+    }
+
+    /**
+     * Remove blog
+     *
+     * @param \BlogBundle\Entity\Blog $blog
+     */
+    public function removeBlog(\BlogBundle\Entity\Blog $blog)
+    {
+        $this->blogs->removeElement($blog);
+    }
+
+    /**
+     * Get blogs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlogs()
+    {
+        return $this->blogs;
     }
 }

@@ -32,8 +32,7 @@ class CommentController extends Controller
         $form    = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
         if ($form->isValid()) {
-            $em = $this->getDoctrine()
-                ->getManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
             $em->flush();
             return $this->redirect($this->generateUrl('blog_view', array(

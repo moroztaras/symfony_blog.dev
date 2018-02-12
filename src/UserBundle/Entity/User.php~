@@ -6,8 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Class User
  * @package UserBundle\Entity
- * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="\UserBundle\Entity\Repository\UserRepository")
+ * @ORM\Table(name="user", options={"collate"="utf8_general_ci"})
  */
 class User implements \Serializable ,UserInterface
 {
@@ -56,6 +56,11 @@ class User implements \Serializable ,UserInterface
      */
     private $account;
 
+    /**
+     * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Blog", mappedBy="user")
+     */
+    protected $blogs;
+
     public function __construct()
     {
         $this->roles = new ArrayCollection();
@@ -64,18 +69,20 @@ class User implements \Serializable ,UserInterface
         $this->created = new \DateTime();
         $this->updated = new \DateTime();
         $this->status = 1;
+        $this->blogs = new ArrayCollection();
     }
 
     public function serialize()
     {
         return serialize(array(
-            $this->id
+            $this->id,
+            $this->username
         ));
     }
 
     public function unserialize($serialized)
     {
-        list($this->id) = unserialize($serialized);
+        list($this->id, $this->username) = unserialize($serialized);
     }
 
     public function getRoles()
@@ -284,6 +291,7 @@ class User implements \Serializable ,UserInterface
     public function setAccount(\UserBundle\Entity\UserAccount $account = null)
     {
         $this->account = $account;
+        $account->setUser($this);
 
         return $this;
     }
@@ -296,5 +304,50 @@ class User implements \Serializable ,UserInterface
     public function getAccount()
     {
         return $this->account;
+    }
+
+    public function  getFullname()
+    {
+        $fullname = $this->getAccount()->getFirstName();
+        $lastname = $this->getAccount()->getLastName();
+        if($lastname){
+            $fullname = $fullname." ".$lastname;
+        }
+
+        return $fullname;
+    }
+
+    /**
+     * Add blog
+     *
+     * @param \BlogBundle\Entity\Blog $blog
+     *
+     * @return User
+     */
+    public function addBlog(\BlogBundle\Entity\Blog $blog)
+    {
+        $this->blogs[] = $blog;
+
+        return $this;
+    }
+
+    /**
+     * Remove blog
+     *
+     * @param \BlogBundle\Entity\Blog $blog
+     */
+    public function removeBlog(\BlogBundle\Entity\Blog $blog)
+    {
+        $this->blogs->removeElement($blog);
+    }
+
+    /**
+     * Get blogs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlogs()
+    {
+        return $this->blogs;
     }
 }

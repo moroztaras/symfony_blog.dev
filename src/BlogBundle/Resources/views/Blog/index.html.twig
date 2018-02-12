@@ -20,7 +20,7 @@
             </h2>
             <div class="container blog-container">
                 <div class="field field_created">
-                    {{ blog.created|date("d-m-Y H:m") }} | Переглядів: {{ blog.views }}
+                    Автор: <a href="{{ path('user_profile_view', {'id':blog.user.id}) }}">{{ blog.user.account.lastName }} {{ blog.user.account.firstName }}</a> | {{ blog.created|date("d-m-Y H:m") }} | Переглядів: {{ blog.views }}
                 </div>
                 <div class="field field-body-summary">
                     {{ blog.summary|raw }}

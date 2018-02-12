@@ -76,6 +76,9 @@ p {
   #main_container article .field_created {
     font-size: 14px;
     color: #777777; }
+    #main_container article .field_created a {
+      color: orange;
+      text-decoration: none; }
   #main_container article .field_tags {
     font-size: 14px;
     color: #777777; }
