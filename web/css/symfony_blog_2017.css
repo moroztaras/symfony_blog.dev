@@ -568,3 +568,11 @@ footer .block-copyright {
   color: #777777;
   text-align: center;
 }
+
+/* line 417, ../../sass/symfony_blog_2017.scss */
+.not_authenticated a {
+  text-decoration: none;
+  color: #1a665a;
+  font-size: 18px;
+  font-weight: bold;
+}

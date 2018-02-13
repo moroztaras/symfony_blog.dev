@@ -371,4 +371,10 @@ footer {
   color: #777777;
   text-align: center; }
 
+.not_authenticated a {
+  text-decoration: none;
+  color: #1a665a;
+  font-size: 18px;
+  font-weight: bold; }
+
 /*# sourceMappingURL=symfony_blog_2017.css.map */

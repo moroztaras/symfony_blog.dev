@@ -21,6 +21,13 @@
             {% include 'BlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
         </section>
         <h3>Добавити коментарій</h3>
-        {{ render(controller( 'BlogBundle:Comment:new', { 'blog_id': blog.id } )) }}
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {{ render(controller( 'BlogBundle:Comment:new', { 'blog_id': blog.id } )) }}
+        {% else %}
+            <div class="not_authenticated">
+                Для додавання коментарів треба <a href="{{ path('login') }}">увійти</a> в систему.<br>
+                Якщо Ви ще не зареєстровані на сайті, то спочатку <a href="{{ path('register') }}">зареєструйтеся</a>.
+            </div>
+        {% endif %}
     </section>
 {% endblock %}

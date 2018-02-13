@@ -411,3 +411,13 @@ footer{
   color: #777777;
   text-align: center;
 }
+
+.not_authenticated
+{
+  a{
+    text-decoration: none;
+    color: $title;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

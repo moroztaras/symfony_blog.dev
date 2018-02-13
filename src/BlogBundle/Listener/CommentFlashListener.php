@@ -29,7 +29,7 @@ class CommentFlashListener implements EventSubscriberInterface
         $comment = $event->getComment();
         $this->session->getFlashBag()->add(
             'success',
-            sprintf('Коментарій від "%s" видалений!',$comment->getUser())
+            sprintf('Коментарій від автора - %s %s видалений!',$comment->getUser()->getAccount()->getLastName(),$comment->getUser()->getAccount()->getFirstName())
         );
     }
 }
