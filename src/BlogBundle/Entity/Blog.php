@@ -71,6 +71,11 @@ class Blog
      */
     protected $user;
 
+    /**
+     * @ORM\Column(type="string", length=150)
+     */
+    protected $description;
+
     public function __construct()
     {
         $this->views = 0;
@@ -332,5 +337,53 @@ class Blog
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Blog
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set keywords
+     *
+     * @param string $keywords
+     *
+     * @return Blog
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return string
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
     }
 }

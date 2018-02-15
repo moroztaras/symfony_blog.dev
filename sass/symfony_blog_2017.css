@@ -67,6 +67,7 @@ p {
           text-decoration: underline; }
 
 #main_container {
+  vertical-align: top;
   margin: 30px auto;
   width: 960px; }
   #main_container article .field {

@@ -19,6 +19,7 @@ class SonataBlogType extends AbstractType
             ->add('summary', TextareaType::class, ['label' => 'Короткий опис', 'required' => true])
             ->add('body', TextareaType::class, ['label' => 'Повний опис', 'required' => true])
             ->add('tags',TextType::class, ['label' => 'Теги', 'required' => true])
+            ->add('description',TextType::class, ['label' => 'Description', 'required' => true])
         ;
     }
 

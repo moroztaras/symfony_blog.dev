@@ -1,6 +1,8 @@
 {% extends 'BlogBundle::page.html.twig' %}
 
 {% block title %}{{ blog.title }} | Блог 2017{% endblock %}
+{% block keywords %}{{ blog.tags }}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
 
 {% block page_title %}{{ blog.title }}{% endblock %}
 

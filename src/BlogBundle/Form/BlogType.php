@@ -19,6 +19,7 @@ class BlogType extends AbstractType
             ->add('summary', TextareaType::class, array('label' => 'Короткий опис'))
             ->add('body', TextareaType::class, array('label' => 'Повний опис'))
             ->add('tags',TextType::class, array('label' => 'Теги'))
+            ->add('description',TextType::class, array('label' => 'Description'))
             ->add('save', SubmitType::class, array('label' => 'Зберегти'))
         ;
     }
