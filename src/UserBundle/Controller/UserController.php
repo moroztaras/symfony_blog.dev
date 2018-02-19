@@ -47,9 +47,12 @@ class UserController extends Controller
         /** @var User $user */
         $user = $this->getUser();
         $userAccount = $user->getAccount();
+        $count_blogs = count($user->getBlogs());
 
         return $this->render('@User/security/profile.html.twig',[
-            'userAccount' => $userAccount
+            'userAccount' => $userAccount,
+            'count_blogs' => $count_blogs,
+            'user' => $user
         ]);
     }
 
@@ -57,10 +60,24 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository("UserBundle:User")->find($id);
+        $count_blogs = count($user->getBlogs());
         $userAccount = $user->getAccount();
 
         return $this->render('@User/security/user_profile.html.twig',[
-            'userAccount' => $userAccount
+            'userAccount' => $userAccount,
+            'count_blogs' => $count_blogs,
+            'user' => $user
+        ]);
+    }
+
+    public function userBlogsAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("UserBundle:User")->find($id);
+        $blogs = $user->getBlogs();
+        return $this->render(
+            '@User/security/user_blogs.html.twig',[
+            'blogs'=>$blogs
         ]);
     }
 

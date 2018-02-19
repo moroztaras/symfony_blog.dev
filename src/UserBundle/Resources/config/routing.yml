@@ -20,6 +20,10 @@ user_profile_view:
   path: /user/{id}/profile
   defaults: { _controller: UserBundle:User:userProfile }
 
+user_profile_blogs:
+  path: /user/{id}/profile/blogs
+  defaults: { _controller: UserBundle:User:userBlogs }
+
 user_edit:
   path: /user/edit
   defaults: { _controller: UserBundle:User:edit }

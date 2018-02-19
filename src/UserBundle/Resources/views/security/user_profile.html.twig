@@ -10,6 +10,7 @@
     {% endfor %}
     <p>Імя: {{ userAccount.firstName }}</p>
     <p>Прізвище: {{ userAccount.lastName }}</p>
+    <p>Опобліковано постів: <a href="{{ path('user_profile_blogs', {'id':user.id}) }}">{{ count_blogs }}</a></p>
     <p>Логін: {{ userAccount.user.username }}</p>
     <p>Email: {{ userAccount.user.email }}</p>
     <p>Дата нородження: {{ userAccount.birthday|date("d-m-Y") }}</p>
