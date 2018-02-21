@@ -94,7 +94,15 @@ p{
   vertical-align: top;
   margin: 30px auto;
   width: $desktop;
-
+  #page_top
+  {
+    font-size: 14px;
+    color: #777777;
+    a{
+      color: orange;
+      text-decoration: none;
+    }
+  }
   article
   {
     .field

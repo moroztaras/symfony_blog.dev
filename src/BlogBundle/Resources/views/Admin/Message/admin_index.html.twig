@@ -1,5 +1,10 @@
 {% extends 'BlogBundle::admin_layout.html.twig' %}
 
+{% block page_top %}
+    <a href="{{ path('homepage') }}">Головна сторінка</a> /
+    <a href="{{ path('admin_blogs') }}">Адмін панель</a> /
+    Повідомлення
+{% endblock %}
 {% block page_title %}Повідомлення | Адмін панель {% endblock %}
 
 {% block main %}

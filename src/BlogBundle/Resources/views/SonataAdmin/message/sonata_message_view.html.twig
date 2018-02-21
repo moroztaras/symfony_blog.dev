@@ -13,6 +13,7 @@
 {% block sonata_admin_content %}
     <div class="hidden-xs">
         <ol class="breadcrumb">
+            <li><a href="{{ path('homepage') }}">Головна сторінка</a></li>
             <li><a href="{{ path('sonata_admin_messages') }}">Повідомлення</a></li>
             <li class="active">
                 Повідомлення №{{ message.id }} - {{ message.created|date("d-m-Y H:m") }}

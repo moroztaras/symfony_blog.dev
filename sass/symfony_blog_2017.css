@@ -70,6 +70,12 @@ p {
   vertical-align: top;
   margin: 30px auto;
   width: 960px; }
+  #main_container #page_top {
+    font-size: 14px;
+    color: #777777; }
+    #main_container #page_top a {
+      color: orange;
+      text-decoration: none; }
   #main_container article .field {
     margin-bottom: 20px; }
     #main_container article .field:last-child {

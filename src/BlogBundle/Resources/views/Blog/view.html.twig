@@ -4,6 +4,7 @@
 {% block keywords %}{{ blog.tags }}{% endblock %}
 {% block description %}{{ blog.description }}{% endblock %}
 
+{% block page_top %}<a href="{{ path('homepage') }}">Головна сторінка</a> / {{ blog.title }}{% endblock %}
 {% block page_title %}{{ blog.title }}{% endblock %}
 
 {% block main %}

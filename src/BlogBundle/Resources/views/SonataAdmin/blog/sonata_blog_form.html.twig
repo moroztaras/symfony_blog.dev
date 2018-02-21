@@ -9,6 +9,7 @@
 {% block sonata_admin_content %}
     <div class="hidden-xs">
         <ol class="nav navbar-top-links breadcrumb">
+            <li><a href="{{ path('homepage') }}">Головна сторінка</a></li>
             <li><a href="{{ path('sonata_admin_blogs') }}">Блоги</a></li>
             <li class="active"><span>{{ page_title }}</span></li>
         </ol>
@@ -33,6 +34,7 @@
                     {{ form_row(form.summary) }}
                     {{ form_row(form.body) }}
                     {{ form_row(form.tags) }}
+                    {{ form_row(form.description) }}
                 </div>
                 <div class="box-footer">
                     <a href="{{ path('sonata_admin_blogs') }}" class="btn btn-default">Повернутися до списку</a>

@@ -2,6 +2,12 @@
 
 {% block title %}Повідомлення № {{ message.id }}| Блог 2017{% endblock %}
 
+{% block page_top %}
+    <a href="{{ path('homepage') }}">Головна сторінка</a> /
+    <a href="{{ path('admin_blogs') }}">Адмін панель</a> /
+    <a href="{{ path('admin_messages') }}">Повідомлення</a> /
+    Повідомлення № {{ message.id }}
+{% endblock %}
 {% block page_title %}Повідомлення № {{ message.id }}{% endblock %}
 
 {% block main %}
