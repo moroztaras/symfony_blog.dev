@@ -28,20 +28,19 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Блог</h3>
                 </div>
-                {{ form_start(form, {class: 'form-horizontal'}) }}
-                <div class="box-body">
-                    {{ form_row(form.title) }}
-                    {{ form_row(form.summary) }}
-                    {{ form_row(form.body) }}
-                    {{ form_row(form.tags) }}
-                    {{ form_row(form.description) }}
+                 {{ form_start(form, {class: 'form-horizontal'}) }}
+                 <div class="box-body">
+                    {{ form_row(form.title, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_row(form.summary, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_row(form.body, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_row(form.tags, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_row(form.description, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="box-footer">
                     <a href="{{ path('sonata_admin_blogs') }}" class="btn btn-default">Повернутися до списку</a>
                     <button type="submit" class="btn btn-primary pull-right">Збереги <i class="fa fa-arrow-circle-right"></i></button>
                 </div>
                 {{ form_end(form) }}
-            </div>
         </div>
     </div>
 {% endblock sonata_admin_content %}
