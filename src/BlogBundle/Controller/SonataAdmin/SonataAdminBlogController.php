@@ -70,6 +70,11 @@ class SonataAdminBlogController extends Controller
     public function createAction(Request $request)
     {
         $blog = new Blog();
+
+        /** @var User $user */
+        $user = $this->getUser();
+        $blog->setUser($user);
+
         $form = $this->createForm(SonataBlogType::class, $blog);
 
         $form->handleRequest($request);

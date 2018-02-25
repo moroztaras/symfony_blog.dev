@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 
 class SonataBlogType extends AbstractType
@@ -20,6 +21,7 @@ class SonataBlogType extends AbstractType
             ->add('body', TextareaType::class, ['label' => 'Повний опис', 'required' => true])
             ->add('tags',TextType::class, ['label' => 'Теги', 'required' => true])
             ->add('description',TextType::class, ['label' => 'Description', 'required' => true])
+            ->add('imageFile', VichImageType::class, ['label' => 'Постер','required' => true])
         ;
     }
 
