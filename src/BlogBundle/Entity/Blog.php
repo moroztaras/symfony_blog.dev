@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Class Blog
  * @package BlogBundle\Entity
- * @ORM\Table(name="blog")
+ * @ORM\Table(name="blog", options={"collate"="utf8_general_ci"})
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="BlogBundle\Repository\BlogRepository")
  * @Vich\Uploadable
