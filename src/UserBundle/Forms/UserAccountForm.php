@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class UserAccountForm extends AbstractType
 {
@@ -24,6 +25,10 @@ class UserAccountForm extends AbstractType
 
         $builder->add('birthday', BirthdayType::class, [
             'label' => 'Дата народження'
+        ]);
+        $builder->add('avatarFile', VichImageType::class, [
+            'label' => 'Аватарка',
+            'required' => true
         ]);
         $builder->add('region', CountryType::class, [
             'label' => 'Країна'

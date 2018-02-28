@@ -76,6 +76,14 @@ p {
     #main_container #page_top a {
       color: orange;
       text-decoration: none; }
+  #main_container #img_avatar {
+    width: 200px;
+    vertical-align: top; }
+  #main_container .user_info {
+    margin-left: 5px; }
+    #main_container .user_info a {
+      color: orange;
+      text-decoration: none; }
   #main_container article #img_blog {
     max-width: 600px;
     text-align: center;
@@ -390,5 +398,13 @@ footer {
   color: #1a665a;
   font-size: 18px;
   font-weight: bold; }
+
+.colortext {
+  color: #1a665a;
+  font-size: 16px;
+  font-weight: bold; }
+
+#input_search input {
+  width: 163px; }
 
 /*# sourceMappingURL=symfony_blog_2017.css.map */

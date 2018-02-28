@@ -2,11 +2,16 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 /**
  * Class User
  * @package UserBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="user_account", options={"collate"="utf8_general_ci"})
+ * @Vich\Uploadable
  */
 class UserAccount
 {
@@ -45,6 +50,26 @@ class UserAccount
 
     private $entities;
 
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatarFileName")
+     *
+     * @var File
+     */
+    private $avatarFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $avatarFileName;
+
+    public function __construct()
+    {
+        $this->avatarFileName="no avatar";
+    }
     /**
      * Get id
      *
@@ -207,5 +232,44 @@ class UserAccount
     public function getEntities($machine_name)
     {
         return isset($this->entities[$machine_name]) ? $this->entities[$machine_name] : NULL;
+    }
+    /**
+     * @param File|UploadedFile $avatarFile
+     *
+     * @return UserAccount
+     */
+    public function setAvatarFile(File $avatarFile = null)
+    {
+        $this->avatarFile = $avatarFile;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getAvatarFile()
+    {
+        return $this->avatarFile;
+    }
+
+    /**
+     * @param string $avatarFileName
+     *
+     * @return UserAccount
+     */
+    public function setAvatarFileName($avatarFileName)
+    {
+        $this->avatarFileName = $avatarFileName;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAvatarFileName()
+    {
+        return $this->avatarFileName;
     }
 }

@@ -8,12 +8,25 @@
             </div>
         {% endfor %}
     {% endfor %}
-    <p>Імя: {{ userAccount.firstName }}</p>
-    <p>Прізвище: {{ userAccount.lastName }}</p>
-    <p>Опобліковано постів: <a href="{{ path('user_profile_blogs', {'id':user.id}) }}">{{ count_blogs }}</a></p>
-    <p>Логін: {{ userAccount.user.username }}</p>
-    <p>Email: {{ userAccount.user.email }}</p>
-    <p>Дата нородження: {{ userAccount.birthday|date("d-m-Y") }}</p>
-    <p>Країна: {{ userAccount.region }}</p>
-    <p>Дата реєстрації: {{ userAccount.user.created|date("d-m-Y H:m") }}</p>
+    <table>
+        <tr>
+            <td>
+                <div id="img_avatar">
+                    <img id="img_avatar" src="{{ asset('images/avatars/')}}{{ userAccount.avatarFileName }}"/>
+                </div>
+            </td>
+            <td>
+                <div class="user_info">
+                    <p><span class="colortext">Імя:</span> {{ userAccount.firstName }}</p>
+                    <p><span class="colortext">Прізвище:</span> {{ userAccount.lastName }}</p>
+                    <p><span class="colortext">Опобліковано постів:</span> <a href="{{ path('user_profile_blogs', {'id':user.id}) }}">{{ count_blogs }}</a></p>
+                    <p><span class="colortext">Логін:</span> {{ userAccount.user.username }}</p>
+                    <p><span class="colortext">Email:</span> {{ userAccount.user.email }}</p>
+                    <p><span class="colortext">Дата нородження:</span> {{ userAccount.birthday|date("d-m-Y") }}</p>
+                    <p><span class="colortext">Країна:</span> {{ userAccount.region }}</p>
+                    <p><span class="colortext">Дата реєстрації:</span> {{ userAccount.user.created|date("d-m-Y H:m") }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
 {% endblock %}
