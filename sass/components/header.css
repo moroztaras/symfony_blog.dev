@@ -5,10 +5,10 @@ Error: File to import not found or unreadable: compass.
 
 1: @import "../default";
 2: @import "../inc/variable";
-3: .header{
-4:   padding: 30px;
-5: }
-6: .region-header{
+3: @import "../inc/mixins";
+4: 
+5: .header{
+6:   padding: 30px;
 
 Backtrace:
 ../_default.scss:1
@@ -68,4 +68,4 @@ header.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: compass.\A         on line 1 of ../_default.scss\A         from line 1 of header.scss\A \A 1: @import \"../default\";\A 2: @import \"../inc/variable\";\A 3: .header{\A 4:   padding: 30px;\A 5: }\A 6: .region-header{"; }
+  content: "Error: File to import not found or unreadable: compass.\A         on line 1 of ../_default.scss\A         from line 1 of header.scss\A \A 1: @import \"../default\";\A 2: @import \"../inc/variable\";\A 3: @import \"../inc/mixins\";\A 4: \A 5: .header{\A 6:   padding: 30px;"; }
