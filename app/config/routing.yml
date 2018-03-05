@@ -20,3 +20,6 @@ file:
 
 user:
     resource: '@UserBundle/Resources/config/routing.yml'
+
+piccolo:
+    resource: '@PiccoloBundle/Resources/config/routing.yml'
