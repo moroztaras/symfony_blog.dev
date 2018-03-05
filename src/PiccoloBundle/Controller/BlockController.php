@@ -9,11 +9,12 @@ class BlockController extends Controller
     {
         return $this->render('@Piccolo/Block/logo.html.twig');
     }
-/*
+
     public function mainMenuAction()
     {
         return $this->render('@Piccolo/Block/main-menu.html.twig');
     }
+/*
     public function mainMenuFooterAction()
     {
         return $this->render('@Piccolo/Block/main-menu-footer.html.twig');
