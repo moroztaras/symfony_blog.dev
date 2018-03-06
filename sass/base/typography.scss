@@ -11,3 +11,12 @@ body{
 *{
   @include box-sizing(border-box);
 }
+
+a{
+  color: $red;
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  &:hover{
+    text-decoration: underline;
+  }
+}

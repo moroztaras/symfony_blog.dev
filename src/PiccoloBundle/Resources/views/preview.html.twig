@@ -4,6 +4,9 @@
     {{ render(controller('PiccoloBundle:Block:logo')) }}
     {{ render(controller('PiccoloBundle:Block:mainMenu')) }}
 {% endblock %}
+{% block sidebar_left %}
+    {{ render(controller('PiccoloBundle:Block:category')) }}
+{% endblock %}
 {% block footer_bottom %}
     {{ include('@Piccolo/Block/copyright.html.twig') }}
     {{ render(controller('PiccoloBundle:Block:mainMenuFooter')) }}

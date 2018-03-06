@@ -1,0 +1,12 @@
+{% extends "PiccoloBundle:System:nav.html.twig" %}
+{% block block_class %}category-list{% endblock %}
+{% block block_title %}Категорії{% endblock %}
+{% block block_content %}
+    <ul class="menu">
+        <li class="menu-item"><a href="{{ path('homepage') }}">Головна</a></li>
+        <li class="menu-item"><a href="#">Категорія 2</a></li>
+        <li class="menu-item"><a href="#">Категорія 3</a></li>
+        <li class="menu-item"><a href="#">Категорія 4</a></li>
+    </ul>
+{% endblock %}
+

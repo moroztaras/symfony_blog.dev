@@ -19,4 +19,8 @@ class BlockController extends Controller
     {
         return $this->render('@Piccolo/Block/main-menu-footer.html.twig');
     }
+
+    public function categoryAction(){
+        return $this->render('@Piccolo/Block/category-list.html.twig');
+    }
 }
