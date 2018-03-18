@@ -7,7 +7,7 @@ Error: File to import not found or unreadable: compass.
 3: html,body {
 4:   padding:0;
 5:   margin:0;
-6: }
+6:   height: 100%;
 
 Backtrace:
 typography.scss:1
@@ -53,4 +53,4 @@ typography.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: compass.\A         on line 1 of typography.scss\A \A 1: @import \"compass\";\A 2: @import \"../inc/variable\";\A 3: html,body {\A 4:   padding:0;\A 5:   margin:0;\A 6: }"; }
+  content: "Error: File to import not found or unreadable: compass.\A         on line 1 of typography.scss\A \A 1: @import \"compass\";\A 2: @import \"../inc/variable\";\A 3: html,body {\A 4:   padding:0;\A 5:   margin:0;\A 6:   height: 100%;"; }
