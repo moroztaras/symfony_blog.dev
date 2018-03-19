@@ -1,0 +1,33 @@
+{% extends '@Piccolo/page_default.html.twig' %}
+{% block page_title %}{{ blog.title }}{% endblock %}
+
+{% block main %}
+    <article class="block block--page-view page-view page-{{ blog.id }}">
+        <div class="block-content">
+            <div class="fields fields-top">
+                <div class="field field-body">{{ blog.body }}</div>
+                <div class="list-link">
+                    <div class="list-link-item page-category">Блоги-категорія</div>
+                    <div class="list-link-item page-created">{{ blog.created|date('d-m-Y') }}</div>
+                </div>
+            </div>
+            <div class="field field-comments">
+                <div class="comment-preview">
+                    <h2 class="comment-title">Коментарії</h2>
+                    {{ render(controller( 'BlogBundle:Comment:new', { 'blog_id': blog.id } )) }}
+                    <div class="list">
+                        {% for comment in comments %}
+                            <div class="list-item">
+                                {{ include('@Blog/Piccolo/Comment/index.html.twig', {'comment' : comment }) }}
+                                <ul>
+                                    <li><a href="#">Редагувати</a></li>
+                                    <li><a href="#">Виділити</a></li>
+                                </ul>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

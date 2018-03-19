@@ -54,7 +54,7 @@ class BlogController extends Controller
         }
 
         return $this->render(
-            'BlogBundle:Blog:view.html.twig',[
+            'BlogBundle:Piccolo/Blog:view.html.twig',[
                 'blog'=>$blog,
                 'comments'  => $comments,
                 'comments_count' => $comments_count
