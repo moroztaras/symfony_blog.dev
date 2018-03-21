@@ -1,5 +1,11 @@
-{% extends 'BlogBundle::page.html.twig' %}
+{% extends '@Piccolo/page_default.html.twig' %}
+
+{% block page_title %}Відновлення пароля{% endblock %}
 
 {% block main %}
-        {{ form(recover_form) }}
+        <div class="block block--security-register security-user">
+            <div class="block-content">
+                {{ form(recover_form) }}
+            </div>
+        </div>
 {% endblock %}

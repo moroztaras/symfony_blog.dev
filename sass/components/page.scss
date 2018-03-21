@@ -7,11 +7,14 @@
   @include display-flex;
   @include flex-flow(column wrap);
   height: 100%;
-  & > * {
-   width: 100%;
+  & > *{
+    width: 100%;
+    //@include flex(1 100%);
   }
+
   footer{
     margin-top: auto;
+    //@include align-self(flex-end);
   }
   &-wrap{
     padding: 0 10px;
@@ -115,6 +118,7 @@
         @include flex-direction(row);
         @include justify-content(flex-end);
         font-size: 12px;
+
         &-item{
           margin-right: 10px;
           &:last-child{

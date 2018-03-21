@@ -1,23 +1,29 @@
-{% extends 'BlogBundle::page.html.twig' %}
+{% extends '@Piccolo/page_default.html.twig' %}
+
+{% block page_title %}Авторизація{% endblock %}
 
 {% block main %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <div class="block block--security-login security-user">
+        <div class="block-content">
+            {% if error %}
+                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-    <form action="{{ path('homepage') }}login" method="post">
-        <label for="username">Ім'я:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+            <form action="{{ path('homepage') }}login" method="post">
+                <label for="username">Ім'я:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" />
 
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="_password" />
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="_password" />
 
-        {#
-            If you want to control the URL the user
-            is redirected to on success (more details below)
-            <input type="hidden" name="_target_path" value="/account" />
-        #}
+                {#
+                    If you want to control the URL the user
+                    is redirected to on success (more details below)
+                    <input type="hidden" name="_target_path" value="/account" />
+                #}
 
-        <button type="submit">Вхід</button> <a href="{{ path( 'recover' ) }}">Забули паполь</a>
-    </form>
+                <button type="submit">Вхід</button> <a href="{{ path( 'recover' ) }}">Забули паполь</a>
+            </form>
+        </div>
+    </div>
 {% endblock %}
