@@ -5,7 +5,7 @@
   max-width: 1200px;
   margin:0 auto;
   @include display-flex;
-  @include flex-flow(column wrap);
+  @include flex-flow(row wrap);
   height: 100%;
   & > *{
     width: 100%;
