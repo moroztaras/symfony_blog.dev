@@ -1,0 +1,5 @@
+{% block user %}
+    <a href="{{ path('homepage') }}user/profile">
+        {{ userAccount.lastName }} {{ userAccount.firstName }}
+    </a>
+{% endblock %}

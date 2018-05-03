@@ -8,8 +8,10 @@ use BlogBundle\Event\MessageEvent;
 use BlogBundle\BlogBundleEvents;
 use BlogBundle\Form\SearchForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use UserBundle\Entity\User;
 
 class PageController extends Controller
 {
@@ -106,6 +108,18 @@ class PageController extends Controller
         return $this->render(
             'BlogBundle:Blog:tag.html.twig',[
             'blogs'=>$blogs,
+        ]);
+    }
+
+    public function userAction()
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+        $userAccount = $user->getAccount();
+
+        return $this->render('@Blog/user.html.twig',[
+            'userAccount' => $userAccount,
+            'user' => $user
         ]);
     }
 }

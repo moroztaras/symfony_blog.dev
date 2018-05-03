@@ -46,7 +46,6 @@
                                 <tr>
                                     <th class="text-center">{{ knp_pagination_sortable(pagination, 'Id', 'u.id') }}</th>
                                     <th class="text-center">{{ knp_pagination_sortable(pagination, 'Дата', 'u.created') }}</th>
-                                    <th class="text-center">{{ knp_pagination_sortable(pagination, 'Логін', 'u.username') }}</th>
                                     <th class="text-center">{{ knp_pagination_sortable(pagination, 'Ім\'я і прізвище', 'u.username') }}</th>
                                     <th></th>
                                 </tr>
@@ -54,7 +53,6 @@
                                     <tr>
                                         <td class="text-center">{{ user.id }}</td>
                                         <td class="text-center">{{ user.created|date("d-m-Y H:m") }}</td>
-                                        <td>{{ user.username }}</td>
                                         <td>{{ user.account.lastName }} {{ user.account.firstName }}</td>
                                         <td class="actions">
                                             <a href="#" class="btn btn-primary a-btn-slide-text">

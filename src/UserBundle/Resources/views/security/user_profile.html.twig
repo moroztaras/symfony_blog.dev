@@ -20,7 +20,6 @@
                     <p><span class="colortext">Імя:</span> {{ userAccount.firstName }}</p>
                     <p><span class="colortext">Прізвище:</span> {{ userAccount.lastName }}</p>
                     <p><span class="colortext">Опобліковано постів:</span> <a href="{{ path('user_profile_blogs', {'id':user.id}) }}">{{ count_blogs }}</a></p>
-                    <p><span class="colortext">Логін:</span> {{ userAccount.user.username }}</p>
                     <p><span class="colortext">Email:</span> {{ userAccount.user.email }}</p>
                     <p><span class="colortext">Дата нородження:</span> {{ userAccount.birthday|date("d-m-Y") }}</p>
                     <p><span class="colortext">Країна:</span> {{ userAccount.region }}</p>

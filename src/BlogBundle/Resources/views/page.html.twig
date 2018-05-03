@@ -14,9 +14,8 @@
             {% block layout %}
                 <div class="block block-layout">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a href="{{ path('homepage') }}user/profile">
-                            {{ app.user.username }}
-                        </a> |
+                        {{ render(controller( 'BlogBundle:Page:user'))}}
+                        {% block user %}{% endblock %}|
                         {% if is_granted("ROLE_ADMIN") %}
                             <a href="{{ path('admin') }}">Адмін панель</a> |
                             <a href="{{ path('sonata_admin') }}">Sonata адмін панель</a> |

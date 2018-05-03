@@ -28,7 +28,7 @@
                 <tr>
                     <td id="id">ID</td>
                     <td id="created">Дата реєстрації</td>
-                    <td id="user_login">Логін</td>
+
                     <td id="user_name">Прізвище ім'я</td>
                     <td id="actions">Дії</td>
                 </tr>
@@ -36,7 +36,6 @@
                 <tr>
                     <td class="id">{{ user.id }}</td>
                     <td class="created">{{ user.created|date("d-m-Y H:m") }}</td>
-                    <td class="send"><a href="{{ path('user_profile_view', {id : user.id}) }}">{{ user.username }}</a></td>
                     <td class="send"><a href="{{ path('user_profile_view', {id : user.id}) }}">{{ user.account.lastName }} {{ user.account.firstName }}</a></td>
                     <td class="actions">
                         <a href="#">Редагувати</a>
