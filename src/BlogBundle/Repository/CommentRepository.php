@@ -61,4 +61,14 @@ class CommentRepository extends EntityRepository
         return $qb->getQuery()
             ->getResult();
     }
+
+    public function removeAllCommentsForBlog($blogId)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->delete()
+            ->where('c.blog = :blog_id')
+            ->setParameter('blog_id', $blogId);
+
+        return $qb->getQuery()->getResult();
+    }
 }

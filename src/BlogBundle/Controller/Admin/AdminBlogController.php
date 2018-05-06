@@ -127,6 +127,8 @@ class AdminBlogController extends Controller
     public function deleteAction(Request $request, Blog $blog)
     {
         $em = $this->getDoctrine()->getManager();
+        $em->getRepository('BlogBundle:Comment')
+            ->removeAllCommentsForBlog($blog->getId());
         if (!$blog)
         {
             throw $this->createAccessDeniedException("Такий блог не знайдено!");
